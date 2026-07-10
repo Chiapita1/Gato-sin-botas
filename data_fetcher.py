@@ -15,8 +15,7 @@ import config
 
 def _headers():
     return {
-        "x-rapidapi-host": config.API_FOOTBALL_HOST,
-        "x-rapidapi-key": config.API_FOOTBALL_KEY,
+        "x-apisports-key": config.API_FOOTBALL_KEY,
     }
 
 
