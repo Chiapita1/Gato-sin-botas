@@ -34,9 +34,12 @@ def validar_configuracion():
 def main():
     validar_configuracion()
 
+    print("Buscando IDs de las competiciones configuradas...")
+    ligas = data_fetcher.resolver_ligas()
+
     resultados_por_liga = {}
 
-    for nombre_liga, league_id in config.LEAGUES.items():
+    for nombre_liga, league_id in ligas.items():
         print(f"Analizando {nombre_liga}...")
         partidos = data_fetcher.partidos_de_hoy(league_id)
 
