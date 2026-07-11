@@ -17,14 +17,35 @@ API_FOOTBALL_KEY = os.environ.get("API_FOOTBALL_KEY", "")
 API_FOOTBALL_HOST = "v3.football.api-sports.io"
 API_FOOTBALL_BASE_URL = f"https://{API_FOOTBALL_HOST}"
 
-# IDs de ligas en API-Football (temporada se calcula automáticamente)
-LEAGUES = {
-    "LaLiga": 140,
-    "Premier League": 39,
-    "Serie A": 135,
-    "Bundesliga": 78,
-    "Ligue 1": 61,
-}
+# Competiciones a analizar. En vez de IDs fijos (que pueden estar mal o
+# cambiar), el bot busca el ID correcto por nombre + país cada vez que
+# corre, usando el endpoint /leagues de la API.
+LEAGUE_QUERIES = [
+    # Europa - top 5
+    {"nombre": "LaLiga", "search": "La Liga", "country": "Spain"},
+    {"nombre": "Premier League", "search": "Premier League", "country": "England"},
+    {"nombre": "Serie A", "search": "Serie A", "country": "Italy"},
+    {"nombre": "Bundesliga", "search": "Bundesliga", "country": "Germany"},
+    {"nombre": "Ligue 1", "search": "Ligue 1", "country": "France"},
+    # Europa - otras
+    {"nombre": "Eredivisie", "search": "Eredivisie", "country": "Netherlands"},
+    {"nombre": "Primeira Liga", "search": "Primeira Liga", "country": "Portugal"},
+    {"nombre": "Eliteserien (Noruega)", "search": "Eliteserien", "country": "Norway"},
+    {"nombre": "Allsvenskan (Suecia)", "search": "Allsvenskan", "country": "Sweden"},
+    {"nombre": "Veikkausliiga (Finlandia)", "search": "Veikkausliiga", "country": "Finland"},
+    # Europa - competiciones internacionales de clubes
+    {"nombre": "Champions League", "search": "UEFA Champions League", "country": "World"},
+    {"nombre": "Europa League", "search": "UEFA Europa League", "country": "World"},
+    # América
+    {"nombre": "MLS", "search": "MLS", "country": "USA"},
+    {"nombre": "Liga MX", "search": "Liga MX", "country": "Mexico"},
+    # Asia
+    {"nombre": "Superliga China", "search": "Super League", "country": "China"},
+    {"nombre": "J1 League (Japón)", "search": "J1 League", "country": "Japan"},
+    {"nombre": "Saudi Pro League", "search": "Pro League", "country": "Saudi-Arabia"},
+    # Selecciones
+    {"nombre": "Mundial de Selecciones", "search": "World Cup", "country": "World"},
+]
 
 # Cuántos partidos anteriores de cada equipo se usan para calcular medias
 PARTIDOS_HISTORIAL = 8
