@@ -33,6 +33,59 @@ def _get(endpoint, params=None, retries=3):
     return []
 
 
+def buscar_liga_id(search, country):
+    """
+    Busca el ID de una competición por nombre + país usando /leagues.
+    Prioriza una coincidencia EXACTA de nombre; si no la hay, usa la
+    primera coincidencia razonable. Devuelve None si no hay nada.
+    """
+    resultados = _get("leagues", {"search": search})
+    if not resultados:
+        return None
+
+    if country == "World":
+        # Primero: coincidencia exacta de nombre entre las competiciones "Cup"
+        for item in resultados:
+            nombre_liga = item.get("league", {}).get("name", "")
+            if nombre_liga.lower() == search.lower() and item.get("league", {}).get("type") == "Cup":
+                return item["league"]["id"]
+        # Si no hay coincidencia exacta, cualquier "Cup" de ámbito mundial
+        for item in resultados:
+            if item.get("league", {}).get("type") == "Cup" and \
+               item.get("country", {}).get("name") in (None, "World"):
+                return item["league"]["id"]
+        return resultados[0]["league"]["id"]
+
+    # Para ligas nacionales: primero coincidencia exacta de nombre + país
+    for item in resultados:
+        nombre_liga = item.get("league", {}).get("name", "")
+        pais = item.get("country", {}).get("name", "")
+        if nombre_liga.lower() == search.lower() and pais.lower() == country.lower():
+            return item["league"]["id"]
+
+    # Si no hay coincidencia exacta, cualquier resultado de ese país
+    for item in resultados:
+        if item.get("country", {}).get("name", "").lower() == country.lower():
+            return item["league"]["id"]
+
+    return None
+
+
+def resolver_ligas():
+    """
+    Recorre config.LEAGUE_QUERIES y devuelve un dict {nombre: id_liga},
+    omitiendo las que no se hayan podido encontrar (con aviso por consola).
+    """
+    ligas_resueltas = {}
+    for query in config.LEAGUE_QUERIES:
+        liga_id = buscar_liga_id(query["search"], query["country"])
+        if liga_id:
+            ligas_resueltas[query["nombre"]] = liga_id
+        else:
+            print(f"Aviso: no se encontró ID para '{query['nombre']}', se omite hoy.")
+    return ligas_resueltas
+
+
 def temporada_actual():
     """API-Football numera la temporada por el año de inicio."""
     hoy = datetime.date.today()
