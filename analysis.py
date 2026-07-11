@@ -21,4 +21,4 @@ import data_fetcher
 MAPEO_ESTADISTICA = {
     "corners": "Corner Kicks",
     "tarjetas": "Yellow Cards",
-    "tiros_puerta": "Shots on Go
+    "tiros_puerta": "Shots on Goal",
