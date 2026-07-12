@@ -44,26 +44,22 @@ def buscar_liga_id(search, country):
         return None
 
     if country == "World":
-        # Primero: coincidencia exacta de nombre entre las competiciones "Cup"
         for item in resultados:
             nombre_liga = item.get("league", {}).get("name", "")
             if nombre_liga.lower() == search.lower() and item.get("league", {}).get("type") == "Cup":
                 return item["league"]["id"]
-        # Si no hay coincidencia exacta, cualquier "Cup" de ámbito mundial
         for item in resultados:
             if item.get("league", {}).get("type") == "Cup" and \
                item.get("country", {}).get("name") in (None, "World"):
                 return item["league"]["id"]
         return resultados[0]["league"]["id"]
 
-    # Para ligas nacionales: primero coincidencia exacta de nombre + país
     for item in resultados:
         nombre_liga = item.get("league", {}).get("name", "")
         pais = item.get("country", {}).get("name", "")
         if nombre_liga.lower() == search.lower() and pais.lower() == country.lower():
             return item["league"]["id"]
 
-    # Si no hay coincidencia exacta, cualquier resultado de ese país
     for item in resultados:
         if item.get("country", {}).get("name", "").lower() == country.lower():
             return item["league"]["id"]
@@ -73,14 +69,26 @@ def buscar_liga_id(search, country):
 
 def resolver_ligas():
     """
-    Recorre config.LEAGUE_QUERIES y devuelve un dict {nombre: id_liga},
-    omitiendo las que no se hayan podido encontrar (con aviso por consola).
+    Recorre config.LEAGUE_QUERIES y devuelve un dict {nombre: id_liga}.
+
+    Si una entrada de LEAGUE_QUERIES ya trae un "id" fijo (porque en una
+    ejecución anterior lo encontramos y lo copiamos a config.py), NO se
+    vuelve a buscar por nombre: esto ahorra 1 petición por competición
+    cada día. Las que no tengan "id" se siguen buscando por nombre+país,
+    y se imprime el ID encontrado para que puedas copiarlo a config.py
+    y fijarlo tú mismo si quieres ahorrar esa petición a partir de mañana.
     """
     ligas_resueltas = {}
     for query in config.LEAGUE_QUERIES:
+        if query.get("id"):
+            ligas_resueltas[query["nombre"]] = query["id"]
+            continue
+
         liga_id = buscar_liga_id(query["search"], query["country"])
         if liga_id:
             ligas_resueltas[query["nombre"]] = liga_id
+            print(f"ID encontrado para '{query['nombre']}': {liga_id} "
+                  f"(puedes fijarlo en config.py con \"id\": {liga_id})")
         else:
             print(f"Aviso: no se encontró ID para '{query['nombre']}', se omite hoy.")
     return ligas_resueltas
