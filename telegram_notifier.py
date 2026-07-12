@@ -53,3 +53,36 @@ def construir_mensaje(resultados_por_liga):
         lineas.append("")
 
     return "\n".join(lineas)
+
+
+def construir_resumen_rendimiento(resumen):
+    """
+    resumen: dict {mercado: {total_picks, aciertos, tasa_acierto, roi_pct}}
+    (lo que devuelve tracker.resumen_por_mercado())
+    """
+    lineas = [
+        "📊 <b>Resumen semanal de rendimiento (últimos 60 días)</b>",
+        "<i>Basado en avisos ya resueltos. Cuantos más picks se acumulen, "
+        "más fiable es este dato.</i>",
+        "",
+    ]
+
+    mercados_ordenados = sorted(
+        resumen.items(), key=lambda item: item[1]["roi_pct"], reverse=True
+    )
+
+    for mercado, datos in mercados_ordenados:
+        signo = "+" if datos["roi_pct"] >= 0 else ""
+        lineas.append(
+            f"• <b>{mercado.capitalize()}</b>: {datos['total_picks']} picks, "
+            f"{datos['aciertos']} aciertos ({datos['tasa_acierto']}%), "
+            f"ROI {signo}{datos['roi_pct']}%"
+        )
+
+    lineas.append("")
+    lineas.append(
+        "Recuerda: hacen falta muchos más picks (meses) para saber si un "
+        "margen es real o solo varianza a corto plazo."
+    )
+
+    return "\n".join(lineas)
