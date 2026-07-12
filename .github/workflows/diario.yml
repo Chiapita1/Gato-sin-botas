@@ -4,6 +4,9 @@ on:
     - cron: "0 8 * * *"
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+
 jobs:
   correr-bot:
     runs-on: ubuntu-latest
@@ -18,3 +21,10 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+      - name: Guardar historial de resultados
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add picks_historial.json
+          git diff --quiet --cached || git commit -m "Actualizar historial de picks [skip ci]"
+          git push
