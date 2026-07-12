@@ -1,4 +1,4 @@
-name: Analisis diario
+description: name: Analisis diario
 on:
   schedule:
     - cron: "0 22 * * *"
