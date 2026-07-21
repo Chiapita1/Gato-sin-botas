@@ -33,6 +33,12 @@ def _get(endpoint, params=None, retries=3):
     return []
 
 
+def temporada_actual():
+    """API-Football numera la temporada por el año de inicio."""
+    hoy = datetime.date.today()
+    return hoy.year if hoy.month >= 7 else hoy.year - 1
+
+
 def buscar_liga_id(search, country):
     """
     Busca el ID de una competición por nombre + país usando /leagues.
@@ -44,22 +50,31 @@ def buscar_liga_id(search, country):
         return None
 
     if country == "World":
+        # 1) coincidencia exacta de nombre entre competiciones "Cup"
         for item in resultados:
             nombre_liga = item.get("league", {}).get("name", "")
             if nombre_liga.lower() == search.lower() and item.get("league", {}).get("type") == "Cup":
                 return item["league"]["id"]
+        # 2) el nombre buscado aparece DENTRO del nombre de la competición (más flexible)
+        for item in resultados:
+            nombre_liga = item.get("league", {}).get("name", "")
+            if search.lower() in nombre_liga.lower() and item.get("league", {}).get("type") == "Cup":
+                return item["league"]["id"]
+        # 3) cualquier "Cup" de ámbito mundial
         for item in resultados:
             if item.get("league", {}).get("type") == "Cup" and \
                item.get("country", {}).get("name") in (None, "World"):
                 return item["league"]["id"]
         return resultados[0]["league"]["id"]
 
+    # Para ligas nacionales: primero coincidencia exacta de nombre + país
     for item in resultados:
         nombre_liga = item.get("league", {}).get("name", "")
         pais = item.get("country", {}).get("name", "")
         if nombre_liga.lower() == search.lower() and pais.lower() == country.lower():
             return item["league"]["id"]
 
+    # Si no hay coincidencia exacta, cualquier resultado de ese país
     for item in resultados:
         if item.get("country", {}).get("name", "").lower() == country.lower():
             return item["league"]["id"]
@@ -94,13 +109,7 @@ def resolver_ligas():
     return ligas_resueltas
 
 
-def temporada_actual():
-    """API-Football numera la temporada por el año de inicio."""
-    hoy = datetime.date.today()
-    return hoy.year if hoy.month >= 7 else hoy.year - 1
 
-
-def partidos_de_hoy(league_id):
     """Devuelve los partidos programados para hoy en una liga concreta."""
     hoy = datetime.date.today().isoformat()
     return _get(
