@@ -22,27 +22,27 @@ API_FOOTBALL_BASE_URL = f"https://{API_FOOTBALL_HOST}"
 # corre, usando el endpoint /leagues de la API.
 LEAGUE_QUERIES = [
     # Europa - top 5
-    {"nombre": "LaLiga", "search": "La Liga", "country": "Spain"},
-    {"nombre": "Premier League", "search": "Premier League", "country": "England"},
-    {"nombre": "Serie A", "search": "Serie A", "country": "Italy"},
-    {"nombre": "Bundesliga", "search": "Bundesliga", "country": "Germany"},
-    {"nombre": "Ligue 1", "search": "Ligue 1", "country": "France"},
+    {"nombre": "LaLiga", "search": "La Liga", "country": "Spain", "id": 140},
+    {"nombre": "Premier League", "search": "Premier League", "country": "England", "id": 39},
+    {"nombre": "Serie A", "search": "Serie A", "country": "Italy", "id": 135},
+    {"nombre": "Bundesliga", "search": "Bundesliga", "country": "Germany", "id": 78},
+    {"nombre": "Ligue 1", "search": "Ligue 1", "country": "France", "id": 61},
     # Europa - otras
-    {"nombre": "Eredivisie", "search": "Eredivisie", "country": "Netherlands"},
-    {"nombre": "Primeira Liga", "search": "Primeira Liga", "country": "Portugal"},
-    {"nombre": "Eliteserien (Noruega)", "search": "Eliteserien", "country": "Norway"},
-    {"nombre": "Allsvenskan (Suecia)", "search": "Allsvenskan", "country": "Sweden"},
-    {"nombre": "Veikkausliiga (Finlandia)", "search": "Veikkausliiga", "country": "Finland"},
+    {"nombre": "Eredivisie", "search": "Eredivisie", "country": "Netherlands", "id": 88},
+    {"nombre": "Primeira Liga", "search": "Primeira Liga", "country": "Portugal", "id": 94},
+    {"nombre": "Eliteserien (Noruega)", "search": "Eliteserien", "country": "Norway", "id": 103},
+    {"nombre": "Allsvenskan (Suecia)", "search": "Allsvenskan", "country": "Sweden", "id": 113},
+    {"nombre": "Veikkausliiga (Finlandia)", "search": "Veikkausliiga", "country": "Finland", "id": 244},
     # Europa - competiciones internacionales de clubes
-    {"nombre": "Champions League", "search": "Champions League", "country": "World"},
-    {"nombre": "Europa League", "search": "Europa League", "country": "World"},
+    {"nombre": "Champions League", "search": "Champions League", "country": "World", "id": 2},
+    {"nombre": "Europa League", "search": "Europa League", "country": "World", "id": 3},
     # América
-    {"nombre": "MLS", "search": "MLS", "country": "USA"},
-    {"nombre": "Liga MX", "search": "Liga MX", "country": "Mexico"},
+    {"nombre": "MLS", "search": "MLS", "country": "USA", "id": 866},
+    {"nombre": "Liga MX", "search": "Liga MX", "country": "Mexico", "id": 262},
     # Asia
-    {"nombre": "Superliga China", "search": "Super League", "country": "China"},
+    {"nombre": "Superliga China", "search": "Super League", "country": "China", "id": 169},
     {"nombre": "J1 League (Japón)", "search": "J1 League", "country": "Japan"},
-    {"nombre": "Saudi Pro League", "search": "Pro League", "country": "Saudi-Arabia"},
+    {"nombre": "Saudi Pro League", "search": "Pro League", "country": "Saudi Arabia"},
     # Selecciones
     {"nombre": "Mundial de Selecciones", "search": "World Cup", "country": "World"},
 ]
