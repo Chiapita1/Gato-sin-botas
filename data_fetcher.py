@@ -108,7 +108,7 @@ def resolver_ligas():
             print(f"Aviso: no se encontró ID para '{query['nombre']}', se omite hoy.")
     return ligas_resueltas
 
-
+def partidos_de_hoy(league_id):
 
     """Devuelve los partidos programados para hoy en una liga concreta."""
     hoy = datetime.date.today().isoformat()
