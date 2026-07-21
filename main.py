@@ -46,6 +46,7 @@ def main():
     for nombre_liga, league_id in ligas.items():
         print(f"Analizando {nombre_liga}...")
         partidos = data_fetcher.partidos_de_hoy(league_id)
+        print(f"  Partidos encontrados: {len(partidos)}")
 
         resultados_liga = []
         for fixture in partidos:
@@ -93,4 +94,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
