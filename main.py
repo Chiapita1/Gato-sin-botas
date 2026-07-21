@@ -41,6 +41,7 @@ def main():
     ligas = data_fetcher.resolver_ligas()
 
     resultados_por_liga = {}
+    ya_se_ha_depurado = False
 
     for nombre_liga, league_id in ligas.items():
         print(f"Analizando {nombre_liga}...")
@@ -48,14 +49,32 @@ def main():
 
         resultados_liga = []
         for fixture in partidos:
+            # DEPURACIÓN TEMPORAL: imprime los nombres de mercado reales del
+            # primer partido con cuotas que encontremos, para comprobar si
+            # coinciden con los que busca analysis.MAPEO_MERCADO_ODDS.
+            if not ya_se_ha_depurado:
+                fixture_id = fixture["fixture"]["id"]
+                odds_debug = data_fetcher.cuotas_partido(fixture_id)
+                if odds_debug:
+                    nombres_mercado = set()
+                    for bloque in odds_debug:
+                        for bookmaker in bloque.get("bookmakers", []):
+                            for bet in bookmaker.get("bets", []):
+                                nombres_mercado.add(bet.get("name"))
+                    print(f"[DEPURACIÓN] Mercados disponibles en {fixture['teams']['home']['name']} "
+                          f"vs {fixture['teams']['away']['name']}: {sorted(nombres_mercado)}")
+                    ya_se_ha_depurado = True
+
             hallazgos = analysis.analizar_partido(fixture)
             resultados_liga.append((fixture, hallazgos))
-            time.sleep(1)
+            time.sleep(1)  # pequeño respiro para no saturar el límite de la API
 
         resultados_por_liga[nombre_liga] = resultados_liga
 
+    # Guarda los avisos de hoy para poder comprobar más adelante si aciertan
     tracker.registrar_hallazgos(resultados_por_liga)
 
+    # Comprueba resultados de avisos de días anteriores
     actualizados = tracker.comprobar_resultados()
     print(f"Resultados actualizados hoy: {actualizados}")
 
@@ -63,6 +82,7 @@ def main():
     telegram_notifier.enviar_mensaje(mensaje)
     print("Resumen enviado por Telegram.")
 
+    # Los domingos, además, se manda un resumen de rendimiento acumulado
     if datetime.date.today().weekday() == 6:
         resumen = tracker.resumen_por_mercado(dias=60)
         if resumen:
@@ -73,3 +93,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
