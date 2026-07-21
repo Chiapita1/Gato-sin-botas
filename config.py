@@ -34,8 +34,8 @@ LEAGUE_QUERIES = [
     {"nombre": "Allsvenskan (Suecia)", "search": "Allsvenskan", "country": "Sweden"},
     {"nombre": "Veikkausliiga (Finlandia)", "search": "Veikkausliiga", "country": "Finland"},
     # Europa - competiciones internacionales de clubes
-    {"nombre": "Champions League", "search": "UEFA Champions League", "country": "World"},
-    {"nombre": "Europa League", "search": "UEFA Europa League", "country": "World"},
+    {"nombre": "Champions League", "search": "Champions League", "country": "World"},
+    {"nombre": "Europa League", "search": "Europa League", "country": "World"},
     # América
     {"nombre": "MLS", "search": "MLS", "country": "USA"},
     {"nombre": "Liga MX", "search": "Liga MX", "country": "Mexico"},
