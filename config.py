@@ -53,7 +53,7 @@ PARTIDOS_HISTORIAL = 8
 # Umbral: solo avisamos si la diferencia entre la probabilidad estadística
 # y la probabilidad implícita de la cuota es igual o mayor a este valor
 # (en puntos porcentuales). 15 es un valor conservador de partida.
-UMBRAL_DIFERENCIA_PP = 8
+UMBRAL_DIFERENCIA_PP = 5
 
 # Mercados que analizamos
-MERCADOS = ["goles", "corners", "tarjetas", "tiros_puerta"]
+MERCADOS = ["goles", "goles_over15", "goles_1t", "corners", "tarjetas", "tiros_puerta"]
