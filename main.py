@@ -58,12 +58,22 @@ def main():
                 odds_debug = data_fetcher.cuotas_partido(fixture_id)
                 if odds_debug:
                     nombres_mercado = set()
+                    valores_tarjetas = set()
+                    valores_tiros = set()
                     for bloque in odds_debug:
                         for bookmaker in bloque.get("bookmakers", []):
                             for bet in bookmaker.get("bets", []):
                                 nombres_mercado.add(bet.get("name"))
+                                if bet.get("name") == "Yellow Over/Under":
+                                    for valor in bet.get("values", []):
+                                        valores_tarjetas.add(valor.get("value"))
+                                if bet.get("name") == "Total Shots on Target":
+                                    for valor in bet.get("values", []):
+                                        valores_tiros.add(valor.get("value"))
                     print(f"[DEPURACIÓN] Mercados disponibles en {fixture['teams']['home']['name']} "
                           f"vs {fixture['teams']['away']['name']}: {sorted(nombres_mercado)}")
+                    print(f"[DEPURACIÓN] Líneas de 'Yellow Over/Under': {sorted(valores_tarjetas)}")
+                    print(f"[DEPURACIÓN] Líneas de 'Total Shots on Target': {sorted(valores_tiros)}")
                     ya_se_ha_depurado = True
 
             hallazgos = analysis.analizar_partido(fixture)
