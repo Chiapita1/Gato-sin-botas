@@ -208,5 +208,47 @@
     "resultado": null,
     "acierto": null,
     "ganancia": null
+  },
+  {
+    "fecha": "2026-08-01",
+    "fixture_id": 1523220,
+    "liga": "Superliga China",
+    "partido": "Tianjin Teda vs Yunnan Yukun",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.62,
+    "prob_estadistica": 71.8,
+    "prob_implicita": 61.7,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-01",
+    "fixture_id": 1523220,
+    "liga": "Superliga China",
+    "partido": "Tianjin Teda vs Yunnan Yukun",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.2,
+    "prob_estadistica": 88.6,
+    "prob_implicita": 83.3,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-01",
+    "fixture_id": 1523220,
+    "liga": "Superliga China",
+    "partido": "Tianjin Teda vs Yunnan Yukun",
+    "mercado": "goles_1t",
+    "seleccion": "Over 0.5",
+    "cuota": 1.28,
+    "prob_estadistica": 85.5,
+    "prob_implicita": 78.1,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
   }
 ]
