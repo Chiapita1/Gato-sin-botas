@@ -24,12 +24,17 @@ import math
 import config
 import data_fetcher
 
+# Nombres de estadística tal como los devuelve API-Football en
+# /fixtures/statistics -> cada partido tiene una lista de {"type": ..., "value": ...}
 MAPEO_ESTADISTICA = {
     "corners": "Corner Kicks",
     "tarjetas": "Yellow Cards",
     "tiros_puerta": "Shots on Goal",
 }
 
+# Nombres de mercado tal como aparecen en /odds (bet -> name), y el "value"
+# que nos interesa dentro de ese mercado. Estos nombres pueden variar según
+# la casa de apuestas que use la API; revisa la respuesta real y ajusta si hace falta.
 MAPEO_MERCADO_ODDS = {
     "goles": {"bet_name": "Goals Over/Under", "value_busqueda": "Over 2.5"},
     "corners": {"bet_name": "Corners Over Under", "value_busqueda": "Over 9.5"},
@@ -37,11 +42,17 @@ MAPEO_MERCADO_ODDS = {
     "tiros_puerta": {"bet_name": "Total Shots on Target", "value_busqueda": "Over 7.5"},
 }
 
+# Cuánto pesa cada partido anterior según su antigüedad (el más reciente
+# pesa 1, el siguiente 0.85, el siguiente 0.85^2, etc.)
 FACTOR_RECENCIA = 0.85
+
+# Cuánto más pesa un partido jugado en el mismo contexto (local jugando en
+# casa, visitante jugando fuera) frente a uno jugado en el contexto contrario.
 FACTOR_CONTEXTO = 1.5
 
 
 def _extraer_valor_estadistica(stats_response, team_id, tipo):
+    """Busca el valor numérico de un tipo de estadística para un equipo dado."""
     for bloque in stats_response:
         if bloque.get("team", {}).get("id") == team_id:
             for item in bloque.get("statistics", []):
@@ -58,10 +69,20 @@ def _extraer_valor_estadistica(stats_response, team_id, tipo):
     return 0
 
 
+# Caché en memoria: evita volver a pedir el historial/estadísticas de un
+# mismo equipo si aparece en más de un partido analizado el mismo día.
+# La clave incluye si se analiza "de local" o "de visitante" porque el
+# peso de cada partido pasado cambia según el contexto.
 _cache_medias_equipo = {}
 
 
 def medias_equipo(team_id, es_local):
+    """
+    Calcula las medias recientes de un equipo en los 4 mercados, ponderando:
+      - más los partidos recientes que los antiguos
+      - más los partidos jugados en el mismo contexto (local/visitante)
+        que el partido de hoy
+    """
     cache_key = (team_id, es_local)
     if cache_key in _cache_medias_equipo:
         return _cache_medias_equipo[cache_key]
@@ -75,6 +96,7 @@ def medias_equipo(team_id, es_local):
     stats_acum = {mercado: 0.0 for mercado in MAPEO_ESTADISTICA}
     peso_total = 0.0
 
+    # La API devuelve los partidos del más reciente al más antiguo.
     for i, partido in enumerate(historial):
         peso_recencia = FACTOR_RECENCIA ** i
         jugo_de_local = partido["teams"]["home"]["id"] == team_id
@@ -105,12 +127,14 @@ def medias_equipo(team_id, es_local):
 
 
 def probabilidad_implicita(cuota_decimal):
+    """Convierte una cuota decimal (ej. 1.80) en probabilidad implícita (%)."""
     if not cuota_decimal or cuota_decimal <= 1:
         return None
     return round((1 / cuota_decimal) * 100, 1)
 
 
 def _parse_umbral(value_busqueda):
+    """Extrae el número de un texto tipo 'Over 2.5' -> 2.5"""
     try:
         return float(value_busqueda.replace("Over ", "").replace("over ", ""))
     except (TypeError, ValueError):
@@ -118,10 +142,15 @@ def _parse_umbral(value_busqueda):
 
 
 def prob_poisson_mayor_que(lam, umbral):
+    """
+    Probabilidad de que una variable Poisson(lam) supere un umbral tipo
+    "Over 2.5" (es decir, P(X >= 3) cuando umbral=2.5). Este es el método
+    estándar en analítica de fútbol para mercados de over/under.
+    """
     if lam is None or lam <= 0:
         return 0.0
 
-    k_max = int(umbral)
+    k_max = int(umbral)  # para 2.5 -> 2 (queremos P(X > 2) = 1 - P(X <= 2))
     prob_acumulada = 0.0
     for k in range(0, k_max + 1):
         prob_acumulada += (lam ** k) * math.exp(-lam) / math.factorial(k)
@@ -131,6 +160,7 @@ def prob_poisson_mayor_que(lam, umbral):
 
 
 def _buscar_cuota(odds_response, bet_name, value_busqueda):
+    """Recorre la respuesta de /odds buscando la cuota de un mercado y valor concretos."""
     for bookmaker_block in odds_response:
         for bookmaker in bookmaker_block.get("bookmakers", []):
             for bet in bookmaker.get("bets", []):
@@ -145,6 +175,10 @@ def _buscar_cuota(odds_response, bet_name, value_busqueda):
 
 
 def analizar_partido(fixture):
+    """
+    Devuelve una lista de "hallazgos" (dicts) para un partido, uno por mercado
+    donde la diferencia entre estadística y cuota supera el umbral configurado.
+    """
     fixture_id = fixture["fixture"]["id"]
     home = fixture["teams"]["home"]
     away = fixture["teams"]["away"]
@@ -175,7 +209,12 @@ def analizar_partido(fixture):
         media_local = medias_local[mercado]
         media_visit = medias_visit[mercado]
 
-        expectativa = media_local + media_visit
+        # Expectativa conjunta (lambda de la Poisson) para el partido de hoy
+        # OJO: media_local y media_visit son medias de "total del partido"
+        # (goles/córners/etc. de AMBOS equipos), no solo lo aportado por
+        # ese equipo. Sumarlas directamente duplicaría la expectativa real
+        # del partido de hoy, así que promediamos en vez de sumar.
+        expectativa = (media_local + media_visit) / 2
 
         prob_estadistica = prob_poisson_mayor_que(expectativa, umbral)
         diferencia = prob_estadistica - prob_implicita
