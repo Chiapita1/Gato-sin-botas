@@ -37,9 +37,23 @@ MAPEO_ESTADISTICA = {
 # la casa de apuestas que use la API; revisa la respuesta real y ajusta si hace falta.
 MAPEO_MERCADO_ODDS = {
     "goles": {"bet_name": "Goals Over/Under", "value_busqueda": "Over 2.5"},
+    "goles_over15": {"bet_name": "Goals Over/Under", "value_busqueda": "Over 1.5"},
+    "goles_1t": {"bet_name": "Goals Over/Under First Half", "value_busqueda": "Over 0.5"},
     "corners": {"bet_name": "Corners Over Under", "value_busqueda": "Over 9.5"},
     "tarjetas": {"bet_name": "Cards Over/Under", "value_busqueda": "Over 3.5"},
     "tiros_puerta": {"bet_name": "Total Shots on Target", "value_busqueda": "Over 7.5"},
+}
+
+# Algunos mercados comparten la misma media calculada (p.ej. "goles" y
+# "goles_over15" son ambos sobre el total de goles del partido completo),
+# así que aquí mapeamos cada mercado a la clave real dentro de "medias".
+MERCADO_A_CLAVE_MEDIA = {
+    "goles": "goles",
+    "goles_over15": "goles",
+    "goles_1t": "goles_1t",
+    "corners": "corners",
+    "tarjetas": "tarjetas",
+    "tiros_puerta": "tiros_puerta",
 }
 
 # Cuánto pesa cada partido anterior según su antigüedad (el más reciente
@@ -93,6 +107,7 @@ def medias_equipo(team_id, es_local):
         return None
 
     goles_acum = 0.0
+    goles_1t_acum = 0.0
     stats_acum = {mercado: 0.0 for mercado in MAPEO_ESTADISTICA}
     peso_total = 0.0
 
@@ -106,6 +121,10 @@ def medias_equipo(team_id, es_local):
         goles = partido.get("goals", {})
         goles_acum += ((goles.get("home") or 0) + (goles.get("away") or 0)) * peso
 
+        # Goles al descanso (para el mercado de goles en la 1ª parte)
+        descanso = partido.get("score", {}).get("halftime", {})
+        goles_1t_acum += ((descanso.get("home") or 0) + (descanso.get("away") or 0)) * peso
+
         fixture_id = partido["fixture"]["id"]
         stats = data_fetcher.estadisticas_partido(fixture_id)
         if stats:
@@ -118,7 +137,10 @@ def medias_equipo(team_id, es_local):
         _cache_medias_equipo[cache_key] = None
         return None
 
-    medias = {"goles": goles_acum / peso_total}
+    medias = {
+        "goles": goles_acum / peso_total,
+        "goles_1t": goles_1t_acum / peso_total,
+    }
     for mercado in MAPEO_ESTADISTICA:
         medias[mercado] = stats_acum[mercado] / peso_total
 
@@ -206,8 +228,8 @@ def analizar_partido(fixture):
         if medias_local is None or medias_visit is None:
             continue
 
-        media_local = medias_local[mercado]
-        media_visit = medias_visit[mercado]
+        media_local = medias_local[MERCADO_A_CLAVE_MEDIA[mercado]]
+        media_visit = medias_visit[MERCADO_A_CLAVE_MEDIA[mercado]]
 
         # Expectativa conjunta (lambda de la Poisson) para el partido de hoy
         # OJO: media_local y media_visit son medias de "total del partido"
