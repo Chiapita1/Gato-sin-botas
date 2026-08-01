@@ -3,6 +3,21 @@
 import requests
 import config
 
+# Nombres legibles para mostrar en los mensajes (las claves internas como
+# "goles_over15" no se leen bien tal cual)
+NOMBRES_MERCADO = {
+    "goles": "Goles +2.5",
+    "goles_over15": "Goles +1.5",
+    "goles_1t": "Goles 1ª parte +0.5",
+    "corners": "Córners",
+    "tarjetas": "Tarjetas",
+    "tiros_puerta": "Tiros a puerta",
+}
+
+
+def _nombre_mercado(mercado):
+    return NOMBRES_MERCADO.get(mercado, mercado.capitalize())
+
 
 def enviar_mensaje(texto):
     url = f"https://api.telegram.org/bot{config.TELEGRAM_BOT_TOKEN}/sendMessage"
@@ -45,7 +60,7 @@ def construir_mensaje(resultados_por_liga):
             lineas.append(f"\n🕒 {hora} — {home} vs {away}")
             for h in hallazgos:
                 lineas.append(
-                    f"  • {h['mercado'].capitalize()}: {h['seleccion']} "
+                    f"  • {_nombre_mercado(h['mercado'])}: {h['seleccion']} "
                     f"(cuota {h['cuota']}) → estadística reciente sugiere "
                     f"~{h['prob_estadistica']}% vs {h['prob_implicita']}% implícito "
                     f"(dif. +{h['diferencia_pp']} pp)"
@@ -67,6 +82,7 @@ def construir_resumen_rendimiento(resumen):
         "",
     ]
 
+    # Ordenamos de mejor a peor ROI para que veas de un vistazo qué mercado va mejor
     mercados_ordenados = sorted(
         resumen.items(), key=lambda item: item[1]["roi_pct"], reverse=True
     )
@@ -74,7 +90,7 @@ def construir_resumen_rendimiento(resumen):
     for mercado, datos in mercados_ordenados:
         signo = "+" if datos["roi_pct"] >= 0 else ""
         lineas.append(
-            f"• <b>{mercado.capitalize()}</b>: {datos['total_picks']} picks, "
+            f"• <b>{_nombre_mercado(mercado)}</b>: {datos['total_picks']} picks, "
             f"{datos['aciertos']} aciertos ({datos['tasa_acierto']}%), "
             f"ROI {signo}{datos['roi_pct']}%"
         )
