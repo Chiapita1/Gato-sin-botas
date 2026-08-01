@@ -27,14 +27,10 @@ def _get(endpoint, params=None, retries=3):
         if resp.status_code == 200:
             data = resp.json()
             errores = data.get("errors")
-            # API-Football a veces devuelve 200 OK con un aviso interno
-            # (parámetro mal formado, límite de plan, etc.) en vez de un
-            # error HTTP. Antes lo ignorábamos en silencio; ahora lo
-            # imprimimos para poder diagnosticarlo.
             if errores:
                 print(f"[AVISO API] endpoint={endpoint} params={params} errores={errores}")
             return data.get("response", [])
-        if resp.status_code == 429:  # límite de peticiones alcanzado
+        if resp.status_code == 429:
             time.sleep(5)
             continue
         resp.raise_for_status()
@@ -58,31 +54,26 @@ def buscar_liga_id(search, country):
         return None
 
     if country == "World":
-        # 1) coincidencia exacta de nombre entre competiciones "Cup"
         for item in resultados:
             nombre_liga = item.get("league", {}).get("name", "")
             if nombre_liga.lower() == search.lower() and item.get("league", {}).get("type") == "Cup":
                 return item["league"]["id"]
-        # 2) el nombre buscado aparece DENTRO del nombre de la competición (más flexible)
         for item in resultados:
             nombre_liga = item.get("league", {}).get("name", "")
             if search.lower() in nombre_liga.lower() and item.get("league", {}).get("type") == "Cup":
                 return item["league"]["id"]
-        # 3) cualquier "Cup" de ámbito mundial
         for item in resultados:
             if item.get("league", {}).get("type") == "Cup" and \
                item.get("country", {}).get("name") in (None, "World"):
                 return item["league"]["id"]
         return resultados[0]["league"]["id"]
 
-    # Para ligas nacionales: primero coincidencia exacta de nombre + país
     for item in resultados:
         nombre_liga = item.get("league", {}).get("name", "")
         pais = item.get("country", {}).get("name", "")
         if nombre_liga.lower() == search.lower() and pais.lower() == country.lower():
             return item["league"]["id"]
 
-    # Si no hay coincidencia exacta, cualquier resultado de ese país
     for item in resultados:
         if item.get("country", {}).get("name", "").lower() == country.lower():
             return item["league"]["id"]
@@ -93,13 +84,6 @@ def buscar_liga_id(search, country):
 def resolver_ligas():
     """
     Recorre config.LEAGUE_QUERIES y devuelve un dict {nombre: id_liga}.
-
-    Si una entrada de LEAGUE_QUERIES ya trae un "id" fijo (porque en una
-    ejecución anterior lo encontramos y lo copiamos a config.py), NO se
-    vuelve a buscar por nombre: esto ahorra 1 petición por competición
-    cada día. Las que no tengan "id" se siguen buscando por nombre+país,
-    y se imprime el ID encontrado para que puedas copiarlo a config.py
-    y fijarlo tú mismo si quieres ahorrar esa petición a partir de mañana.
     """
     ligas_resueltas = {}
     for query in config.LEAGUE_QUERIES:
@@ -117,7 +101,7 @@ def resolver_ligas():
     return ligas_resueltas
 
 
-
+def partidos_de_hoy(league_id):
     """Devuelve los partidos programados para hoy en una liga concreta."""
     hoy = datetime.date.today().isoformat()
     return _get(
