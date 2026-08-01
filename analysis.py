@@ -40,7 +40,7 @@ MAPEO_MERCADO_ODDS = {
     "goles_over15": {"bet_name": "Goals Over/Under", "value_busqueda": "Over 1.5"},
     "goles_1t": {"bet_name": "Goals Over/Under First Half", "value_busqueda": "Over 0.5"},
     "corners": {"bet_name": "Corners Over Under", "value_busqueda": "Over 9.5"},
-    "tarjetas": {"bet_name": "Cards Over/Under", "value_busqueda": "Over 3.5"},
+    "tarjetas": {"bet_name": "Yellow Over/Under", "value_busqueda": "Over 3.5"},
     "tiros_puerta": {"bet_name": "Total Shots on Target", "value_busqueda": "Over 7.5"},
 }
 
