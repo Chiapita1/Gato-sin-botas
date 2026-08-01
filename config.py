@@ -51,7 +51,7 @@ LEAGUE_QUERIES = [
     {"nombre": "Championship (Inglaterra)", "search": "Championship", "country": "England", "id": 40},
     {"nombre": "LaLiga 2", "search": "Segunda", "country": "Spain", "id": 141},
     {"nombre": "Ekstraklasa (Polonia)", "search": "Ekstraklasa", "country": "Poland", "id": 106},
-    {"nombre": "Superliga (Rumanía)", "search": "Liga 1", "country": "Romania"},
+    {"nombre": "Superliga (Rumanía)", "search": "Liga 1", "country": "Romania", "id": 728},
     {"nombre": "Chance Liga (Rep. Checa)", "search": "First League", "country": "Czech-Republic"},
     {"nombre": "Challenge League (Suiza)", "search": "Challenge League", "country": "Switzerland", "id": 208},
     {"nombre": "Süper Lig (Turquía)", "search": "Super Lig", "country": "Turkey", "id": 203},
