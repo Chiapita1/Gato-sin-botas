@@ -41,23 +41,23 @@ LEAGUE_QUERIES = [
     {"nombre": "Liga MX", "search": "Liga MX", "country": "Mexico", "id": 262},
     # Asia
     {"nombre": "Superliga China", "search": "Super League", "country": "China", "id": 169},
-    {"nombre": "J1 League (Japón)", "search": "J1 League", "country": "Japan"},
+    {"nombre": "J1 League (Japón)", "search": "J1 League", "country": "Japan", "id": 98},
     {"nombre": "Saudi Pro League", "search": "Pro League", "country": "Saudi Arabia"},
     # Selecciones
-    {"nombre": "Mundial de Selecciones", "search": "World Cup", "country": "World"},
+    {"nombre": "Mundial de Selecciones", "search": "World Cup", "country": "World", "id": 1},
     # Europa - añadidas ahora que hay plan de pago
-    {"nombre": "Swiss Super League", "search": "Super League", "country": "Switzerland"},
-    {"nombre": "Austrian Bundesliga", "search": "Bundesliga", "country": "Austria"},
-    {"nombre": "Championship (Inglaterra)", "search": "Championship", "country": "England"},
-    {"nombre": "LaLiga 2", "search": "Segunda", "country": "Spain"},
-    {"nombre": "Ekstraklasa (Polonia)", "search": "Ekstraklasa", "country": "Poland"},
-    {"nombre": "Superliga (Rumanía)", "search": "Superliga", "country": "Romania"},
-    {"nombre": "Chance Liga (Rep. Checa)", "search": "Chance Liga", "country": "Czech-Republic"},
-    {"nombre": "Challenge League (Suiza)", "search": "Challenge League", "country": "Switzerland"},
-    {"nombre": "Süper Lig (Turquía)", "search": "Super Lig", "country": "Turkey"},
+    {"nombre": "Swiss Super League", "search": "Super League", "country": "Switzerland", "id": 207},
+    {"nombre": "Austrian Bundesliga", "search": "Bundesliga", "country": "Austria", "id": 218},
+    {"nombre": "Championship (Inglaterra)", "search": "Championship", "country": "England", "id": 40},
+    {"nombre": "LaLiga 2", "search": "Segunda", "country": "Spain", "id": 141},
+    {"nombre": "Ekstraklasa (Polonia)", "search": "Ekstraklasa", "country": "Poland", "id": 106},
+    {"nombre": "Superliga (Rumanía)", "search": "Liga 1", "country": "Romania"},
+    {"nombre": "Chance Liga (Rep. Checa)", "search": "First League", "country": "Czech-Republic"},
+    {"nombre": "Challenge League (Suiza)", "search": "Challenge League", "country": "Switzerland", "id": 208},
+    {"nombre": "Süper Lig (Turquía)", "search": "Super Lig", "country": "Turkey", "id": 203},
     # Copas internacionales de clubes (Sudamérica)
-    {"nombre": "Copa Libertadores", "search": "Libertadores", "country": "World"},
-    {"nombre": "Copa Sudamericana", "search": "Sudamericana", "country": "World"},
+    {"nombre": "Copa Libertadores", "search": "Libertadores", "country": "World", "id": 13},
+    {"nombre": "Copa Sudamericana", "search": "Sudamericana", "country": "World", "id": 11},
 ]
 
 # Cuántos partidos anteriores de cada equipo se usan para calcular medias
