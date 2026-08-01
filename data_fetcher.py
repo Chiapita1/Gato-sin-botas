@@ -25,7 +25,15 @@ def _get(endpoint, params=None, retries=3):
     for intento in range(retries):
         resp = requests.get(url, headers=_headers(), params=params, timeout=15)
         if resp.status_code == 200:
-            return resp.json().get("response", [])
+            data = resp.json()
+            errores = data.get("errors")
+            # API-Football a veces devuelve 200 OK con un aviso interno
+            # (parámetro mal formado, límite de plan, etc.) en vez de un
+            # error HTTP. Antes lo ignorábamos en silencio; ahora lo
+            # imprimimos para poder diagnosticarlo.
+            if errores:
+                print(f"[AVISO API] endpoint={endpoint} params={params} errores={errores}")
+            return data.get("response", [])
         if resp.status_code == 429:  # límite de peticiones alcanzado
             time.sleep(5)
             continue
@@ -108,7 +116,7 @@ def resolver_ligas():
             print(f"Aviso: no se encontró ID para '{query['nombre']}', se omite hoy.")
     return ligas_resueltas
 
-def partidos_de_hoy(league_id):
+
 
     """Devuelve los partidos programados para hoy en una liga concreta."""
     hoy = datetime.date.today().isoformat()
