@@ -45,6 +45,19 @@ LEAGUE_QUERIES = [
     {"nombre": "Saudi Pro League", "search": "Pro League", "country": "Saudi Arabia"},
     # Selecciones
     {"nombre": "Mundial de Selecciones", "search": "World Cup", "country": "World"},
+    # Europa - añadidas ahora que hay plan de pago
+    {"nombre": "Swiss Super League", "search": "Super League", "country": "Switzerland"},
+    {"nombre": "Austrian Bundesliga", "search": "Bundesliga", "country": "Austria"},
+    {"nombre": "Championship (Inglaterra)", "search": "Championship", "country": "England"},
+    {"nombre": "LaLiga 2", "search": "Segunda", "country": "Spain"},
+    {"nombre": "Ekstraklasa (Polonia)", "search": "Ekstraklasa", "country": "Poland"},
+    {"nombre": "Superliga (Rumanía)", "search": "Superliga", "country": "Romania"},
+    {"nombre": "Chance Liga (Rep. Checa)", "search": "Chance Liga", "country": "Czech-Republic"},
+    {"nombre": "Challenge League (Suiza)", "search": "Challenge League", "country": "Switzerland"},
+    {"nombre": "Süper Lig (Turquía)", "search": "Super Lig", "country": "Turkey"},
+    # Copas internacionales de clubes (Sudamérica)
+    {"nombre": "Copa Libertadores", "search": "Libertadores", "country": "World"},
+    {"nombre": "Copa Sudamericana", "search": "Sudamericana", "country": "World"},
 ]
 
 # Cuántos partidos anteriores de cada equipo se usan para calcular medias
