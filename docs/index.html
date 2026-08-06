@@ -1,1 +1,364 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marcador — Gato sin Botas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pitch-900: #0b2e23;
+    --pitch-700: #123c2c;
+    --pitch-600: #1a4a37;
+    --chalk: #f5f2e9;
+    --chalk-dim: #b9c4bd;
+    --amber: #f2b705;
+    --clay: #d3564b;
+    --mist: #8fa69a;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--pitch-900);
+    background-image:
+      repeating-linear-gradient(0deg, rgba(245,242,233,0.02) 0px, rgba(245,242,233,0.02) 1px, transparent 1px, transparent 40px);
+    color: var(--chalk);
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+  }
+
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(245,242,233,0.15);
+    padding-bottom: 16px;
+    margin-bottom: 28px;
+  }
+
+  header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  header .actualizado {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--mist);
+  }
+
+  .marcador {
+    background: var(--pitch-700);
+    border: 1px solid rgba(245,242,233,0.12);
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+
+  .marcador .celda {
+    padding: 22px 12px;
+    text-align: center;
+    border-right: 1px solid rgba(245,242,233,0.1);
+  }
+  .marcador .celda:last-child { border-right: none; }
+
+  .marcador .valor {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: clamp(26px, 7vw, 38px);
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 18px currentColor;
+  }
+  .marcador .valor.pos { color: var(--amber); }
+  .marcador .valor.neg { color: var(--clay); }
+  .marcador .valor.neutro { color: var(--chalk); }
+
+  .marcador .etiqueta {
+    font-family: 'Inter', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--chalk-dim);
+    margin-top: 6px;
+  }
+
+  section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mist);
+    margin: 0 0 12px;
+    padding-top: 4px;
+  }
+
+  .clasificacion { margin-bottom: 36px; }
+  .fila-mercado {
+    display: grid;
+    grid-template-columns: 22px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(245,242,233,0.08);
+  }
+  .fila-mercado .puesto {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--mist);
+    font-size: 12px;
+  }
+  .fila-mercado .info { min-width: 0; }
+  .fila-mercado .nombre {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .fila-mercado .detalle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--chalk-dim);
+    margin-top: 2px;
+  }
+  .barra-track {
+    height: 4px;
+    background: rgba(245,242,233,0.08);
+    border-radius: 2px;
+    margin-top: 6px;
+    overflow: hidden;
+  }
+  .barra-fill { height: 100%; border-radius: 2px; }
+  .barra-fill.pos { background: var(--amber); }
+  .barra-fill.neg { background: var(--clay); }
+
+  .fila-mercado .roi {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: right;
+    min-width: 64px;
+  }
+  .roi.pos { color: var(--amber); }
+  .roi.neg { color: var(--clay); }
+
+  .picks-lista { display: flex; flex-direction: column; gap: 1px; }
+  .pick-fila {
+    background: var(--pitch-700);
+    padding: 12px 14px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .pick-fila .izq { min-width: 0; }
+  .pick-fila .partido {
+    font-size: 13.5px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .pick-fila .meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    color: var(--chalk-dim);
+    margin-top: 3px;
+  }
+  .pick-fila .estado {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    flex-shrink: 0;
+    width: 26px;
+    text-align: center;
+  }
+  .estado.acierto { color: var(--amber); }
+  .estado.fallo { color: var(--clay); }
+  .estado.pendiente { color: var(--mist); }
+
+  .aviso {
+    margin-top: 36px;
+    padding: 14px 16px;
+    border: 1px solid rgba(245,242,233,0.12);
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--chalk-dim);
+  }
+
+  .vacio {
+    color: var(--mist);
+    font-size: 13px;
+    padding: 20px 0;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Gato sin Botas ⚽</h1>
+      <div class="actualizado" id="actualizado">cargando…</div>
+    </header>
+
+    <div class="marcador" id="marcador">
+      <div class="celda">
+        <div class="valor neutro" id="total-picks">—</div>
+        <div class="etiqueta">Picks resueltos</div>
+      </div>
+      <div class="celda">
+        <div class="valor neutro" id="total-acierto">—</div>
+        <div class="etiqueta">% Acierto</div>
+      </div>
+      <div class="celda">
+        <div class="valor neutro" id="total-roi">—</div>
+        <div class="etiqueta">ROI acumulado</div>
+      </div>
+    </div>
+
+    <section>
+      <h2>Rendimiento por mercado</h2>
+      <div class="clasificacion" id="clasificacion">
+        <div class="vacio">Cargando datos…</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Últimos picks</h2>
+      <div class="picks-lista" id="picks-lista">
+        <div class="vacio">Cargando datos…</div>
+      </div>
+    </section>
+
+    <div class="aviso">
+      Esto es una herramienta de cribado estadístico, no una garantía de acierto.
+      Cuantos más picks se acumulen con el tiempo, más fiable es este dato.
+      El rendimiento pasado no garantiza resultados futuros.
+    </div>
+  </div>
+
+<script>
+const NOMBRES_MERCADO = {
+  goles: "Goles +2.5",
+  goles_over15: "Goles +1.5",
+  goles_1t: "Goles 1ª parte +0.5",
+  corners: "Córners",
+  tarjetas: "Tarjetas",
+  tiros_puerta: "Tiros a puerta",
+};
+
+function nombreMercado(m) {
+  return NOMBRES_MERCADO[m] || m;
+}
+
+function formatoFecha(iso) {
+  const d = new Date(iso);
+  return d.toLocaleString('es-ES', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+}
+
+async function cargar() {
+  let picks = [];
+  try {
+    const resp = await fetch('./data.json', { cache: 'no-store' });
+    if (!resp.ok) throw new Error('no data');
+    picks = await resp.json();
+  } catch (e) {
+    document.getElementById('clasificacion').innerHTML = '<div class="vacio">Todavía no hay datos guardados. Vuelve después de la primera ejecución del bot.</div>';
+    document.getElementById('picks-lista').innerHTML = '';
+    document.getElementById('actualizado').textContent = 'sin datos';
+    return;
+  }
+
+  document.getElementById('actualizado').textContent = 'actualizado ' + formatoFecha(new Date().toISOString());
+
+  const resueltos = picks.filter(p => p.resultado !== null && p.resultado !== undefined);
+
+  const totalPicks = resueltos.length;
+  const totalAciertos = resueltos.filter(p => p.acierto).length;
+  const tasaAcierto = totalPicks ? (totalAciertos / totalPicks * 100) : 0;
+  const gananciaTotal = resueltos.reduce((acc, p) => acc + (p.ganancia || 0), 0);
+  const roiTotal = totalPicks ? (gananciaTotal / totalPicks * 100) : 0;
+
+  document.getElementById('total-picks').textContent = totalPicks;
+  const elAcierto = document.getElementById('total-acierto');
+  elAcierto.textContent = totalPicks ? tasaAcierto.toFixed(1) + '%' : '—';
+  const elRoi = document.getElementById('total-roi');
+  elRoi.textContent = totalPicks ? (roiTotal >= 0 ? '+' : '') + roiTotal.toFixed(1) + '%' : '—';
+  elRoi.classList.remove('neutro');
+  elRoi.classList.add(roiTotal >= 0 ? 'pos' : 'neg');
+
+  const porMercado = {};
+  for (const p of resueltos) {
+    if (!porMercado[p.mercado]) porMercado[p.mercado] = { total: 0, aciertos: 0, ganancia: 0 };
+    porMercado[p.mercado].total += 1;
+    if (p.acierto) porMercado[p.mercado].aciertos += 1;
+    porMercado[p.mercado].ganancia += (p.ganancia || 0);
+  }
+
+  const filas = Object.entries(porMercado).map(([mercado, d]) => ({
+    mercado,
+    total: d.total,
+    tasa: d.aciertos / d.total * 100,
+    roi: d.ganancia / d.total * 100,
+  })).sort((a, b) => b.roi - a.roi);
+
+  const contClasif = document.getElementById('clasificacion');
+  if (filas.length === 0) {
+    contClasif.innerHTML = '<div class="vacio">Todavía no hay picks resueltos. Vuelve en unos días.</div>';
+  } else {
+    const maxAbsRoi = Math.max(...filas.map(f => Math.abs(f.roi)), 1);
+    contClasif.innerHTML = filas.map((f, i) => {
+      const esPos = f.roi >= 0;
+      const anchoBarra = Math.min(100, Math.abs(f.roi) / maxAbsRoi * 100);
+      return `
+        <div class="fila-mercado">
+          <div class="puesto">${String(i + 1).padStart(2, '0')}</div>
+          <div class="info">
+            <div class="nombre">${nombreMercado(f.mercado)}</div>
+            <div class="detalle">${f.total} picks · ${f.tasa.toFixed(0)}% acierto</div>
+            <div class="barra-track"><div class="barra-fill ${esPos ? 'pos' : 'neg'}" style="width:${anchoBarra}%"></div></div>
+          </div>
+          <div class="roi ${esPos ? 'pos' : 'neg'}">${esPos ? '+' : ''}${f.roi.toFixed(1)}%</div>
+        </div>`;
+    }).join('');
+  }
+
+  const ordenados = [...picks].sort((a, b) => (b.fecha || '').localeCompare(a.fecha || '')).slice(0, 15);
+  const contPicks = document.getElementById('picks-lista');
+  if (ordenados.length === 0) {
+    contPicks.innerHTML = '<div class="vacio">Todavía no hay picks registrados.</div>';
+  } else {
+    contPicks.innerHTML = ordenados.map(p => {
+      let estadoClase = 'pendiente', estadoTexto = '…';
+      if (p.acierto === true) { estadoClase = 'acierto'; estadoTexto = '✓'; }
+      else if (p.acierto === false) { estadoClase = 'fallo'; estadoTexto = '✗'; }
+      return `
+        <div class="pick-fila">
+          <div class="izq">
+            <div class="partido">${p.partido || ''}</div>
+            <div class="meta">${p.fecha || ''} · ${nombreMercado(p.mercado)} · cuota ${p.cuota}</div>
+          </div>
+          <div class="estado ${estadoClase}">${estadoTexto}</div>
+        </div>`;
+    }).join('');
+  }
+}
+
+cargar();
+</script>
+</body>
+  </html>
