@@ -68,7 +68,7 @@ def registrar_hallazgos(resultados_por_liga):
 
 def _valor_real(fixture_id, mercado):
     """Obtiene el valor real (goles/corners/tarjetas/tiros) de un partido ya finalizado."""
-    if mercado == "goles":
+    if mercado in ("goles", "goles_over15"):
         partidos = data_fetcher._get("fixtures", {"id": fixture_id})
         if not partidos:
             return None
@@ -78,11 +78,28 @@ def _valor_real(fixture_id, mercado):
         goles = partidos[0].get("goals", {})
         return (goles.get("home") or 0) + (goles.get("away") or 0)
 
+    if mercado == "goles_1t":
+        partidos = data_fetcher._get("fixtures", {"id": fixture_id})
+        if not partidos:
+            return None
+        estado = partidos[0].get("fixture", {}).get("status", {}).get("short")
+        if estado not in ("FT", "AET", "PEN"):
+            return None
+        descanso = partidos[0].get("score", {}).get("halftime", {})
+        return (descanso.get("home") or 0) + (descanso.get("away") or 0)
+
     tipo_stat = {
         "corners": "Corner Kicks",
         "tarjetas": "Yellow Cards",
         "tiros_puerta": "Shots on Goal",
     }.get(mercado)
+
+    if tipo_stat is None:
+        # Mercado desconocido: mejor no arriesgarnos a marcarlo mal.
+        # Antes esto devolvía 0 en silencio, lo que provocaba que TODOS
+        # los picks de un mercado no reconocido se marcaran como fallo
+        # sin comprobar nada de verdad.
+        return None
 
     stats = data_fetcher.estadisticas_partido(fixture_id)
     if not stats:
@@ -104,6 +121,27 @@ def _valor_real(fixture_id, mercado):
     return total
 
 
+def _reparar_historial_v1(picks):
+    """
+    Corrige un fallo de una versión anterior: los mercados "goles_over15" y
+    "goles_1t" no estaban reconocidos en _valor_real, así que TODOS sus
+    picks resueltos se marcaron como fallo por error, sin comprobar el
+    resultado real. Esto reinicia esos picks (una sola vez, marcados con
+    "_reparado_v1") para que se vuelvan a comprobar con la lógica corregida.
+    """
+    cambios = 0
+    for pick in picks:
+        if pick.get("mercado") in ("goles_over15", "goles_1t") and \
+           pick.get("resultado") is not None and \
+           not pick.get("_reparado_v1"):
+            pick["resultado"] = None
+            pick["acierto"] = None
+            pick["ganancia"] = None
+            pick["_reparado_v1"] = True
+            cambios += 1
+    return cambios
+
+
 def comprobar_resultados():
     """
     Recorre los picks pendientes de hace más de 1 día (para dar tiempo a que
@@ -112,7 +150,7 @@ def comprobar_resultados():
     """
     picks = _cargar_picks()
     hoy = datetime.date.today()
-    cambios = 0
+    cambios = _reparar_historial_v1(picks)
 
     for pick in picks:
         if pick["resultado"] is not None:
@@ -124,7 +162,7 @@ def comprobar_resultados():
 
         valor_real = _valor_real(pick["fixture_id"], pick["mercado"])
         if valor_real is None:
-            continue
+            continue  # aún no hay datos definitivos, se reintenta otro día
 
         try:
             umbral = float(pick["seleccion"].replace("Over ", ""))
