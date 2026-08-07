@@ -233,9 +233,10 @@
     "cuota": 1.2,
     "prob_estadistica": 88.6,
     "prob_implicita": 83.3,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 5,
+    "acierto": true,
+    "ganancia": 0.19999999999999996,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -247,9 +248,10 @@
     "cuota": 1.28,
     "prob_estadistica": 85.5,
     "prob_implicita": 78.1,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 1,
+    "acierto": true,
+    "ganancia": 0.28,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -275,9 +277,10 @@
     "cuota": 1.2,
     "prob_estadistica": 88.6,
     "prob_implicita": 83.3,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 5,
+    "acierto": true,
+    "ganancia": 0.19999999999999996,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -289,9 +292,10 @@
     "cuota": 1.28,
     "prob_estadistica": 85.5,
     "prob_implicita": 78.1,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 1,
+    "acierto": true,
+    "ganancia": 0.28,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -317,9 +321,10 @@
     "cuota": 1.2,
     "prob_estadistica": 91.6,
     "prob_implicita": 83.3,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 3,
+    "acierto": true,
+    "ganancia": 0.19999999999999996,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -345,9 +350,10 @@
     "cuota": 1.22,
     "prob_estadistica": 90.0,
     "prob_implicita": 82.0,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 2,
+    "acierto": true,
+    "ganancia": 0.21999999999999997,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -373,9 +379,10 @@
     "cuota": 1.25,
     "prob_estadistica": 86.9,
     "prob_implicita": 80.0,
-    "resultado": 0.0,
+    "resultado": 0,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -401,9 +408,10 @@
     "cuota": 1.2,
     "prob_estadistica": 91.0,
     "prob_implicita": 83.3,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 5,
+    "acierto": true,
+    "ganancia": 0.19999999999999996,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -429,9 +437,10 @@
     "cuota": 1.2,
     "prob_estadistica": 91.6,
     "prob_implicita": 83.3,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 3,
+    "acierto": true,
+    "ganancia": 0.19999999999999996,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -457,9 +466,10 @@
     "cuota": 1.25,
     "prob_estadistica": 90.0,
     "prob_implicita": 80.0,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 2,
+    "acierto": true,
+    "ganancia": 0.25,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -485,9 +495,10 @@
     "cuota": 1.25,
     "prob_estadistica": 86.9,
     "prob_implicita": 80.0,
-    "resultado": 0.0,
+    "resultado": 0,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -513,9 +524,10 @@
     "cuota": 1.2,
     "prob_estadistica": 91.0,
     "prob_implicita": 83.3,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 5,
+    "acierto": true,
+    "ganancia": 0.19999999999999996,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -541,9 +553,10 @@
     "cuota": 1.2,
     "prob_estadistica": 91.6,
     "prob_implicita": 83.3,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 3,
+    "acierto": true,
+    "ganancia": 0.19999999999999996,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -569,9 +582,10 @@
     "cuota": 1.25,
     "prob_estadistica": 90.0,
     "prob_implicita": 80.0,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 2,
+    "acierto": true,
+    "ganancia": 0.25,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -597,9 +611,10 @@
     "cuota": 1.25,
     "prob_estadistica": 86.9,
     "prob_implicita": 80.0,
-    "resultado": 0.0,
+    "resultado": 0,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -625,9 +640,10 @@
     "cuota": 1.2,
     "prob_estadistica": 91.0,
     "prob_implicita": 83.3,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 5,
+    "acierto": true,
+    "ganancia": 0.19999999999999996,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -653,9 +669,10 @@
     "cuota": 1.2,
     "prob_estadistica": 91.6,
     "prob_implicita": 83.3,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 3,
+    "acierto": true,
+    "ganancia": 0.19999999999999996,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -681,9 +698,10 @@
     "cuota": 1.25,
     "prob_estadistica": 90.0,
     "prob_implicita": 80.0,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 2,
+    "acierto": true,
+    "ganancia": 0.25,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -709,9 +727,10 @@
     "cuota": 1.25,
     "prob_estadistica": 86.9,
     "prob_implicita": 80.0,
-    "resultado": 0.0,
+    "resultado": 0,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-01",
@@ -737,9 +756,10 @@
     "cuota": 1.3,
     "prob_estadistica": 87.9,
     "prob_implicita": 76.9,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 7,
+    "acierto": true,
+    "ganancia": 0.30000000000000004,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-02",
@@ -779,9 +799,10 @@
     "cuota": 1.3,
     "prob_estadistica": 84.1,
     "prob_implicita": 76.9,
-    "resultado": 0.0,
+    "resultado": 0,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-02",
@@ -863,9 +884,10 @@
     "cuota": 1.18,
     "prob_estadistica": 91.0,
     "prob_implicita": 84.7,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 3,
+    "acierto": true,
+    "ganancia": 0.17999999999999994,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-02",
@@ -905,9 +927,10 @@
     "cuota": 1.28,
     "prob_estadistica": 93.2,
     "prob_implicita": 78.1,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 3,
+    "acierto": true,
+    "ganancia": 0.28,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-02",
@@ -919,9 +942,10 @@
     "cuota": 1.36,
     "prob_estadistica": 89.2,
     "prob_implicita": 73.5,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 1,
+    "acierto": true,
+    "ganancia": 0.3600000000000001,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-02",
@@ -947,9 +971,10 @@
     "cuota": 1.28,
     "prob_estadistica": 88.6,
     "prob_implicita": 78.1,
-    "resultado": 0.0,
+    "resultado": 1,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-02",
@@ -961,9 +986,10 @@
     "cuota": 1.36,
     "prob_estadistica": 84.8,
     "prob_implicita": 73.5,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 1,
+    "acierto": true,
+    "ganancia": 0.3600000000000001,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-02",
@@ -989,9 +1015,10 @@
     "cuota": 1.3,
     "prob_estadistica": 86.1,
     "prob_implicita": 76.9,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 3,
+    "acierto": true,
+    "ganancia": 0.30000000000000004,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-02",
@@ -1017,9 +1044,10 @@
     "cuota": 1.25,
     "prob_estadistica": 85.8,
     "prob_implicita": 80.0,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 4,
+    "acierto": true,
+    "ganancia": 0.25,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-02",
@@ -1059,9 +1087,10 @@
     "cuota": 1.3,
     "prob_estadistica": 84.1,
     "prob_implicita": 76.9,
-    "resultado": 0.0,
+    "resultado": 0,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-02",
@@ -1115,9 +1144,10 @@
     "cuota": 1.2,
     "prob_estadistica": 89.0,
     "prob_implicita": 83.3,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 5,
+    "acierto": true,
+    "ganancia": 0.19999999999999996,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-02",
@@ -1171,9 +1201,10 @@
     "cuota": 1.18,
     "prob_estadistica": 91.0,
     "prob_implicita": 84.7,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 3,
+    "acierto": true,
+    "ganancia": 0.17999999999999994,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-02",
@@ -1213,9 +1244,10 @@
     "cuota": 1.28,
     "prob_estadistica": 93.2,
     "prob_implicita": 78.1,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 3,
+    "acierto": true,
+    "ganancia": 0.28,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-02",
@@ -1227,9 +1259,10 @@
     "cuota": 1.36,
     "prob_estadistica": 89.2,
     "prob_implicita": 73.5,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 1,
+    "acierto": true,
+    "ganancia": 0.3600000000000001,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-02",
@@ -1255,9 +1288,10 @@
     "cuota": 1.28,
     "prob_estadistica": 88.6,
     "prob_implicita": 78.1,
-    "resultado": 0.0,
+    "resultado": 1,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-02",
@@ -1269,9 +1303,10 @@
     "cuota": 1.36,
     "prob_estadistica": 84.8,
     "prob_implicita": 73.5,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 1,
+    "acierto": true,
+    "ganancia": 0.3600000000000001,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-02",
@@ -1297,9 +1332,10 @@
     "cuota": 1.3,
     "prob_estadistica": 86.1,
     "prob_implicita": 76.9,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 3,
+    "acierto": true,
+    "ganancia": 0.30000000000000004,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-02",
@@ -1325,9 +1361,10 @@
     "cuota": 1.25,
     "prob_estadistica": 85.8,
     "prob_implicita": 80.0,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 4,
+    "acierto": true,
+    "ganancia": 0.25,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-04",
@@ -1353,9 +1390,9 @@
     "cuota": 1.3,
     "prob_estadistica": 85.3,
     "prob_implicita": 76.9,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 3,
+    "acierto": true,
+    "ganancia": 0.30000000000000004
   },
   {
     "fecha": "2026-08-04",
@@ -1381,9 +1418,9 @@
     "cuota": 1.25,
     "prob_estadistica": 89.5,
     "prob_implicita": 80.0,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 1,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-04",
@@ -1409,9 +1446,9 @@
     "cuota": 1.38,
     "prob_estadistica": 81.0,
     "prob_implicita": 72.5,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 1,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-04",
@@ -1437,9 +1474,10 @@
     "cuota": 1.22,
     "prob_estadistica": 88.5,
     "prob_implicita": 82.0,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 3,
+    "acierto": true,
+    "ganancia": 0.21999999999999997,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-04",
@@ -1479,9 +1517,10 @@
     "cuota": 1.28,
     "prob_estadistica": 85.5,
     "prob_implicita": 78.1,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 4,
+    "acierto": true,
+    "ganancia": 0.28,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-04",
@@ -1493,9 +1532,10 @@
     "cuota": 1.36,
     "prob_estadistica": 79.2,
     "prob_implicita": 73.5,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 2,
+    "acierto": true,
+    "ganancia": 0.3600000000000001,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-04",
@@ -1521,9 +1561,10 @@
     "cuota": 1.36,
     "prob_estadistica": 82.8,
     "prob_implicita": 73.5,
-    "resultado": 0.0,
+    "resultado": 0,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-04",
@@ -1535,9 +1576,10 @@
     "cuota": 1.42,
     "prob_estadistica": 75.8,
     "prob_implicita": 70.4,
-    "resultado": 0.0,
+    "resultado": 0,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-06",
@@ -1549,9 +1591,122 @@
     "cuota": 1.4,
     "prob_estadistica": 77.9,
     "prob_implicita": 71.4,
-    "resultado": 0.0,
-    "acierto": false,
-    "ganancia": -1
+    "resultado": 3,
+    "acierto": true,
+    "ganancia": 0.3999999999999999,
+    "_reparado_v1": true
+  },
+  {
+    "fecha": "2026-08-07",
+    "fixture_id": 1552117,
+    "liga": "Eredivisie",
+    "partido": "Cambuur vs Excelsior",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.75,
+    "prob_estadistica": 76.8,
+    "prob_implicita": 57.1,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-07",
+    "fixture_id": 1552117,
+    "liga": "Eredivisie",
+    "partido": "Cambuur vs Excelsior",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.25,
+    "prob_estadistica": 91.2,
+    "prob_implicita": 80.0,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-07",
+    "fixture_id": 1552117,
+    "liga": "Eredivisie",
+    "partido": "Cambuur vs Excelsior",
+    "mercado": "goles_1t",
+    "seleccion": "Over 0.5",
+    "cuota": 1.3,
+    "prob_estadistica": 90.1,
+    "prob_implicita": 76.9,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-07",
+    "fixture_id": 1561900,
+    "liga": "Austrian Bundesliga",
+    "partido": "SCR Altach vs WSG Wattens",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.95,
+    "prob_estadistica": 73.6,
+    "prob_implicita": 51.3,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-07",
+    "fixture_id": 1561900,
+    "liga": "Austrian Bundesliga",
+    "partido": "SCR Altach vs WSG Wattens",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.3,
+    "prob_estadistica": 89.5,
+    "prob_implicita": 76.9,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-07",
+    "fixture_id": 1561900,
+    "liga": "Austrian Bundesliga",
+    "partido": "SCR Altach vs WSG Wattens",
+    "mercado": "goles_1t",
+    "seleccion": "Over 0.5",
+    "cuota": 1.36,
+    "prob_estadistica": 87.0,
+    "prob_implicita": 73.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-07",
+    "fixture_id": 1555029,
+    "liga": "Challenge League (Suiza)",
+    "partido": "FC Winterthur vs FC WIL 1900",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.53,
+    "prob_estadistica": 77.0,
+    "prob_implicita": 65.4,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-07",
+    "fixture_id": 1555029,
+    "liga": "Challenge League (Suiza)",
+    "partido": "FC Winterthur vs FC WIL 1900",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.2,
+    "prob_estadistica": 91.2,
+    "prob_implicita": 83.3,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
   },
   {
     "fecha": "2026-08-07",
