@@ -42,6 +42,7 @@ MAPEO_MERCADO_ODDS = {
     "corners": {"bet_name": "Corners Over Under", "value_busqueda": "Over 9.5"},
     "tarjetas": {"bet_name": "Yellow Over/Under", "value_busqueda": "Over 3.5"},
     "tiros_puerta": {"bet_name": "Total Shots on Target", "value_busqueda": "Over 7.5"},
+    "btts": {"bet_name": "Both Teams Score", "value_busqueda": "Yes"},
 }
 
 # Algunos mercados comparten la misma media calculada (p.ej. "goles" y
@@ -107,6 +108,7 @@ def medias_equipo(team_id, es_local):
         return None
 
     goles_acum = 0.0
+    goles_favor_acum = 0.0
     goles_1t_acum = 0.0
     stats_acum = {mercado: 0.0 for mercado in MAPEO_ESTADISTICA}
     peso_total = 0.0
@@ -120,6 +122,10 @@ def medias_equipo(team_id, es_local):
 
         goles = partido.get("goals", {})
         goles_acum += ((goles.get("home") or 0) + (goles.get("away") or 0)) * peso
+
+        # Goles marcados SOLO por este equipo (para el mercado "ambos marcan")
+        goles_propios = goles.get("home") if jugo_de_local else goles.get("away")
+        goles_favor_acum += (goles_propios or 0) * peso
 
         # Goles al descanso (para el mercado de goles en la 1ª parte)
         descanso = partido.get("score", {}).get("halftime", {})
@@ -139,6 +145,7 @@ def medias_equipo(team_id, es_local):
 
     medias = {
         "goles": goles_acum / peso_total,
+        "goles_favor": goles_favor_acum / peso_total,
         "goles_1t": goles_1t_acum / peso_total,
     }
     for mercado in MAPEO_ESTADISTICA:
@@ -181,6 +188,13 @@ def prob_poisson_mayor_que(lam, umbral):
     return max(0.0, min(1.0, prob)) * 100
 
 
+def prob_marca_al_menos_uno(lam):
+    """Probabilidad de que un equipo con media 'lam' marque 1 o más goles."""
+    if lam is None or lam <= 0:
+        return 0.0
+    return max(0.0, min(1.0, 1 - math.exp(-lam)))
+
+
 def _buscar_cuota(odds_response, bet_name, value_busqueda):
     """Recorre la respuesta de /odds buscando la cuota de un mercado y valor concretos."""
     for bookmaker_block in odds_response:
@@ -217,25 +231,34 @@ def _evaluar_mercado(fixture, mercado):
     if prob_implicita is None:
         return None
 
-    umbral = _parse_umbral(info_odds["value_busqueda"])
-    if umbral is None:
-        return None
-
     medias_local = medias_equipo(home["id"], es_local=True)
     medias_visit = medias_equipo(away["id"], es_local=False)
     if medias_local is None or medias_visit is None:
         return None
 
-    media_local = medias_local[MERCADO_A_CLAVE_MEDIA[mercado]]
-    media_visit = medias_visit[MERCADO_A_CLAVE_MEDIA[mercado]]
+    if mercado == "btts":
+        # "Ambos marcan" no es un mercado de más/menos como los otros:
+        # es la probabilidad de que AMBOS equipos marquen al menos 1 gol,
+        # usando la media de goles propios de cada uno (no el total del
+        # partido) como si cada equipo marcara de forma independiente.
+        prob_local_marca = prob_marca_al_menos_uno(medias_local["goles_favor"])
+        prob_visit_marca = prob_marca_al_menos_uno(medias_visit["goles_favor"])
+        prob_estadistica = prob_local_marca * prob_visit_marca * 100
+    else:
+        umbral = _parse_umbral(info_odds["value_busqueda"])
+        if umbral is None:
+            return None
 
-    # OJO: media_local y media_visit son medias de "total del partido"
-    # (goles/córners/etc. de AMBOS equipos), no solo lo aportado por ese
-    # equipo. Sumarlas directamente duplicaría la expectativa real del
-    # partido de hoy, así que promediamos en vez de sumar.
-    expectativa = (media_local + media_visit) / 2
+        media_local = medias_local[MERCADO_A_CLAVE_MEDIA[mercado]]
+        media_visit = medias_visit[MERCADO_A_CLAVE_MEDIA[mercado]]
 
-    prob_estadistica = prob_poisson_mayor_que(expectativa, umbral)
+        # OJO: media_local y media_visit son medias de "total del partido"
+        # (goles/córners/etc. de AMBOS equipos), no solo lo aportado por ese
+        # equipo. Sumarlas directamente duplicaría la expectativa real del
+        # partido de hoy, así que promediamos en vez de sumar.
+        expectativa = (media_local + media_visit) / 2
+        prob_estadistica = prob_poisson_mayor_que(expectativa, umbral)
+
     diferencia = prob_estadistica - prob_implicita
 
     return {
@@ -276,4 +299,4 @@ def diagnostico_partido(fixture):
         datos = _evaluar_mercado(fixture, mercado)
         resultados.append(datos if datos else {"mercado": mercado, "motivo": "sin datos suficientes (sin cuota o sin historial)"})
     return resultados
-                      
+      
