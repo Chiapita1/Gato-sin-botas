@@ -76,4 +76,4 @@ UMBRAL_DIFERENCIA_PP = 5
 PROB_ESTADISTICA_MINIMA = 65
 
 # Mercados que analizamos
-MERCADOS = ["goles", "goles_over15", "goles_1t", "corners", "tarjetas", "tiros_puerta"]
+MERCADOS = ["goles", "goles_over15", "goles_1t", "corners", "tarjetas", "tiros_puerta", "btts"]
