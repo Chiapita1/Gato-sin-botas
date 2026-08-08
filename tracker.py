@@ -88,6 +88,17 @@ def _valor_real(fixture_id, mercado):
         descanso = partidos[0].get("score", {}).get("halftime", {})
         return (descanso.get("home") or 0) + (descanso.get("away") or 0)
 
+    if mercado == "btts":
+        partidos = data_fetcher._get("fixtures", {"id": fixture_id})
+        if not partidos:
+            return None
+        estado = partidos[0].get("fixture", {}).get("status", {}).get("short")
+        if estado not in ("FT", "AET", "PEN"):
+            return None
+        goles = partidos[0].get("goals", {})
+        ambos_marcaron = (goles.get("home") or 0) >= 1 and (goles.get("away") or 0) >= 1
+        return 1 if ambos_marcaron else 0
+
     tipo_stat = {
         "corners": "Corner Kicks",
         "tarjetas": "Yellow Cards",
@@ -164,12 +175,15 @@ def comprobar_resultados():
         if valor_real is None:
             continue  # aún no hay datos definitivos, se reintenta otro día
 
-        try:
-            umbral = float(pick["seleccion"].replace("Over ", ""))
-        except (TypeError, ValueError):
-            continue
-
-        acierto = valor_real > umbral
+        if pick["mercado"] == "btts":
+            # Aquí valor_real es 1 (ambos marcaron) o 0 (no ambos)
+            acierto = valor_real == 1
+        else:
+            try:
+                umbral = float(pick["seleccion"].replace("Over ", ""))
+            except (TypeError, ValueError):
+                continue
+            acierto = valor_real > umbral
 
         pick["resultado"] = valor_real
         pick["acierto"] = acierto
@@ -218,3 +232,4 @@ def resumen_por_mercado(dias=60):
         }
 
     return resumen
+    
