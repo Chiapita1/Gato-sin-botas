@@ -68,5 +68,12 @@ PARTIDOS_HISTORIAL = 8
 # (en puntos porcentuales). 15 es un valor conservador de partida.
 UMBRAL_DIFERENCIA_PP = 5
 
+# Además de la diferencia mínima, exigimos que la probabilidad estadística
+# estimada sea de al menos este valor (en %) para avisar. Esto filtra
+# desajustes que, aunque grandes en puntos porcentuales, sigan siendo poco
+# probables en términos absolutos (ej. 30% vs 20% cumple la diferencia
+# pero no llega al 80% mínimo, así que se descarta).
+PROB_ESTADISTICA_MINIMA = 65
+
 # Mercados que analizamos
 MERCADOS = ["goles", "goles_over15", "goles_1t", "corners", "tarjetas", "tiros_puerta"]
