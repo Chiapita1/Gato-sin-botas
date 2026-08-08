@@ -12,6 +12,7 @@ NOMBRES_MERCADO = {
     "corners": "Córners",
     "tarjetas": "Tarjetas",
     "tiros_puerta": "Tiros a puerta",
+    "btts": "Ambos marcan",
 }
 
 
