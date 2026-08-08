@@ -196,59 +196,84 @@ def _buscar_cuota(odds_response, bet_name, value_busqueda):
     return None
 
 
-def analizar_partido(fixture):
+def _evaluar_mercado(fixture, mercado):
     """
-    Devuelve una lista de "hallazgos" (dicts) para un partido, uno por mercado
-    donde la diferencia entre estadística y cuota supera el umbral configurado.
+    Calcula todos los datos de un mercado para un partido (cuota, probabilidad
+    implícita, probabilidad estadística, diferencia), SIN aplicar ningún
+    filtro de umbral. Devuelve None si falta algún dato necesario (sin cuota
+    para ese mercado, sin historial suficiente, etc.).
     """
     fixture_id = fixture["fixture"]["id"]
     home = fixture["teams"]["home"]
     away = fixture["teams"]["away"]
 
+    info_odds = MAPEO_MERCADO_ODDS.get(mercado)
+    if not info_odds:
+        return None
+
     odds = data_fetcher.cuotas_partido(fixture_id)
+    cuota = _buscar_cuota(odds, info_odds["bet_name"], info_odds["value_busqueda"])
+    prob_implicita = probabilidad_implicita(cuota)
+    if prob_implicita is None:
+        return None
+
+    umbral = _parse_umbral(info_odds["value_busqueda"])
+    if umbral is None:
+        return None
+
+    medias_local = medias_equipo(home["id"], es_local=True)
+    medias_visit = medias_equipo(away["id"], es_local=False)
+    if medias_local is None or medias_visit is None:
+        return None
+
+    media_local = medias_local[MERCADO_A_CLAVE_MEDIA[mercado]]
+    media_visit = medias_visit[MERCADO_A_CLAVE_MEDIA[mercado]]
+
+    # OJO: media_local y media_visit son medias de "total del partido"
+    # (goles/córners/etc. de AMBOS equipos), no solo lo aportado por ese
+    # equipo. Sumarlas directamente duplicaría la expectativa real del
+    # partido de hoy, así que promediamos en vez de sumar.
+    expectativa = (media_local + media_visit) / 2
+
+    prob_estadistica = prob_poisson_mayor_que(expectativa, umbral)
+    diferencia = prob_estadistica - prob_implicita
+
+    return {
+        "mercado": mercado,
+        "seleccion": info_odds["value_busqueda"],
+        "cuota": cuota,
+        "prob_implicita": prob_implicita,
+        "prob_estadistica": round(prob_estadistica, 1),
+        "diferencia_pp": round(diferencia, 1),
+    }
+
+
+def analizar_partido(fixture):
+    """
+    Devuelve una lista de "hallazgos" (dicts) para un partido, uno por mercado
+    donde la diferencia entre estadística y cuota supera el umbral configurado
+    Y la probabilidad estadística llega al mínimo exigido.
+    """
     hallazgos = []
-
     for mercado in config.MERCADOS:
-        info_odds = MAPEO_MERCADO_ODDS.get(mercado)
-        if not info_odds:
+        datos = _evaluar_mercado(fixture, mercado)
+        if datos is None:
             continue
-
-        cuota = _buscar_cuota(odds, info_odds["bet_name"], info_odds["value_busqueda"])
-        prob_implicita = probabilidad_implicita(cuota)
-        if prob_implicita is None:
-            continue
-
-        umbral = _parse_umbral(info_odds["value_busqueda"])
-        if umbral is None:
-            continue
-
-        medias_local = medias_equipo(home["id"], es_local=True)
-        medias_visit = medias_equipo(away["id"], es_local=False)
-
-        if medias_local is None or medias_visit is None:
-            continue
-
-        media_local = medias_local[MERCADO_A_CLAVE_MEDIA[mercado]]
-        media_visit = medias_visit[MERCADO_A_CLAVE_MEDIA[mercado]]
-
-        # Expectativa conjunta (lambda de la Poisson) para el partido de hoy
-        # OJO: media_local y media_visit son medias de "total del partido"
-        # (goles/córners/etc. de AMBOS equipos), no solo lo aportado por
-        # ese equipo. Sumarlas directamente duplicaría la expectativa real
-        # del partido de hoy, así que promediamos en vez de sumar.
-        expectativa = (media_local + media_visit) / 2
-
-        prob_estadistica = prob_poisson_mayor_que(expectativa, umbral)
-        diferencia = prob_estadistica - prob_implicita
-
-        if diferencia >= config.UMBRAL_DIFERENCIA_PP:
-            hallazgos.append({
-                "mercado": mercado,
-                "seleccion": info_odds["value_busqueda"],
-                "cuota": cuota,
-                "prob_implicita": prob_implicita,
-                "prob_estadistica": round(prob_estadistica, 1),
-                "diferencia_pp": round(diferencia, 1),
-            })
-
+        if datos["diferencia_pp"] >= config.UMBRAL_DIFERENCIA_PP and \
+           datos["prob_estadistica"] >= config.PROB_ESTADISTICA_MINIMA:
+            hallazgos.append(datos)
     return hallazgos
+
+
+def diagnostico_partido(fixture):
+    """
+    Igual que analizar_partido, pero devuelve TODOS los mercados evaluados,
+    sin filtrar por umbral. Solo para depuración manual, no se usa en el
+    funcionamiento normal del bot.
+    """
+    resultados = []
+    for mercado in config.MERCADOS:
+        datos = _evaluar_mercado(fixture, mercado)
+        resultados.append(datos if datos else {"mercado": mercado, "motivo": "sin datos suficientes (sin cuota o sin historial)"})
+    return resultados
+                      
