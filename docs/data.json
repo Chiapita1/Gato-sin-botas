@@ -1625,7 +1625,8 @@
     "prob_implicita": 80.0,
     "resultado": 4,
     "acierto": true,
-    "ganancia": 0.25
+    "ganancia": 0.25,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-07",
@@ -1639,7 +1640,8 @@
     "prob_implicita": 76.9,
     "resultado": 3,
     "acierto": true,
-    "ganancia": 0.30000000000000004
+    "ganancia": 0.30000000000000004,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-07",
@@ -1667,7 +1669,8 @@
     "prob_implicita": 76.9,
     "resultado": 4,
     "acierto": true,
-    "ganancia": 0.30000000000000004
+    "ganancia": 0.30000000000000004,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-07",
@@ -1681,7 +1684,8 @@
     "prob_implicita": 73.5,
     "resultado": 2,
     "acierto": true,
-    "ganancia": 0.3600000000000001
+    "ganancia": 0.3600000000000001,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-07",
@@ -1709,7 +1713,8 @@
     "prob_implicita": 83.3,
     "resultado": 5,
     "acierto": true,
-    "ganancia": 0.19999999999999996
+    "ganancia": 0.19999999999999996,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-07",
@@ -1737,7 +1742,8 @@
     "prob_implicita": 80.0,
     "resultado": 4,
     "acierto": true,
-    "ganancia": 0.25
+    "ganancia": 0.25,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-07",
@@ -1751,7 +1757,8 @@
     "prob_implicita": 76.9,
     "resultado": 3,
     "acierto": true,
-    "ganancia": 0.30000000000000004
+    "ganancia": 0.30000000000000004,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-07",
@@ -1779,7 +1786,8 @@
     "prob_implicita": 76.9,
     "resultado": 4,
     "acierto": true,
-    "ganancia": 0.30000000000000004
+    "ganancia": 0.30000000000000004,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-07",
@@ -1793,7 +1801,8 @@
     "prob_implicita": 73.5,
     "resultado": 2,
     "acierto": true,
-    "ganancia": 0.3600000000000001
+    "ganancia": 0.3600000000000001,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-07",
@@ -1821,7 +1830,8 @@
     "prob_implicita": 83.3,
     "resultado": 5,
     "acierto": true,
-    "ganancia": 0.19999999999999996
+    "ganancia": 0.19999999999999996,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-08",
@@ -1860,6 +1870,62 @@
     "seleccion": "Over 0.5",
     "cuota": 1.22,
     "prob_estadistica": 87.0,
+    "prob_implicita": 82.0,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-08",
+    "fixture_id": 1552121,
+    "liga": "Eredivisie",
+    "partido": "AZ Alkmaar vs ADO Den Haag",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.48,
+    "prob_estadistica": 72.9,
+    "prob_implicita": 67.6,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-08",
+    "fixture_id": 1575448,
+    "liga": "Primeira Liga",
+    "partido": "Estrela vs Sporting CP",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.6,
+    "prob_estadistica": 70.9,
+    "prob_implicita": 62.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-08",
+    "fixture_id": 1494238,
+    "liga": "Allsvenskan (Suecia)",
+    "partido": "Orgryte IS vs AIK Stockholm",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.67,
+    "prob_estadistica": 72.7,
+    "prob_implicita": 59.9,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-08",
+    "fixture_id": 1494238,
+    "liga": "Allsvenskan (Suecia)",
+    "partido": "Orgryte IS vs AIK Stockholm",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.22,
+    "prob_estadistica": 89.0,
     "prob_implicita": 82.0,
     "resultado": null,
     "acierto": null,
