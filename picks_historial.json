@@ -2086,7 +2086,8 @@
     "prob_implicita": 87.0,
     "resultado": 1,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-09",
@@ -2170,7 +2171,8 @@
     "prob_implicita": 84.7,
     "resultado": 2,
     "acierto": true,
-    "ganancia": 0.17999999999999994
+    "ganancia": 0.17999999999999994,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-09",
@@ -2240,7 +2242,8 @@
     "prob_implicita": 83.3,
     "resultado": 2,
     "acierto": true,
-    "ganancia": 0.19999999999999996
+    "ganancia": 0.19999999999999996,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-09",
@@ -2254,7 +2257,8 @@
     "prob_implicita": 78.1,
     "resultado": 0,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-09",
@@ -2296,7 +2300,8 @@
     "prob_implicita": 76.9,
     "resultado": 3,
     "acierto": true,
-    "ganancia": 0.30000000000000004
+    "ganancia": 0.30000000000000004,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-09",
@@ -2338,7 +2343,8 @@
     "prob_implicita": 80.0,
     "resultado": 2,
     "acierto": true,
-    "ganancia": 0.25
+    "ganancia": 0.25,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-09",
@@ -2422,7 +2428,8 @@
     "prob_implicita": 75.2,
     "resultado": 2,
     "acierto": true,
-    "ganancia": 0.33000000000000007
+    "ganancia": 0.33000000000000007,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-09",
@@ -2436,7 +2443,8 @@
     "prob_implicita": 75.2,
     "resultado": 4,
     "acierto": true,
-    "ganancia": 0.33000000000000007
+    "ganancia": 0.33000000000000007,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-09",
@@ -2534,7 +2542,8 @@
     "prob_implicita": 76.9,
     "resultado": 3,
     "acierto": true,
-    "ganancia": 0.30000000000000004
+    "ganancia": 0.30000000000000004,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-09",
@@ -2588,6 +2597,48 @@
     "cuota": 1.5,
     "prob_estadistica": 74.1,
     "prob_implicita": 66.7,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-10",
+    "fixture_id": 1575453,
+    "liga": "Primeira Liga",
+    "partido": "Santa Clara vs Nacional",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.5,
+    "prob_estadistica": 76.2,
+    "prob_implicita": 66.7,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-10",
+    "fixture_id": 1575453,
+    "liga": "Primeira Liga",
+    "partido": "Santa Clara vs Nacional",
+    "mercado": "goles_1t",
+    "seleccion": "Over 0.5",
+    "cuota": 1.5,
+    "prob_estadistica": 72.0,
+    "prob_implicita": 66.7,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-10",
+    "fixture_id": 1494239,
+    "liga": "Allsvenskan (Suecia)",
+    "partido": "Sirius vs IF Brommapojkarna",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.67,
+    "prob_estadistica": 65.8,
+    "prob_implicita": 59.9,
     "resultado": null,
     "acierto": null,
     "ganancia": null
