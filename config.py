@@ -58,6 +58,22 @@ LEAGUE_QUERIES = [
     # Copas internacionales de clubes (Sudamérica)
     {"nombre": "Copa Libertadores", "search": "Libertadores", "country": "World", "id": 13},
     {"nombre": "Copa Sudamericana", "search": "Sudamericana", "country": "World", "id": 11},
+    # Ampliación con suscripción de pago (7.500 peticiones/día)
+    {"nombre": "Superliga (Dinamarca)", "search": "Superliga", "country": "Denmark"},
+    {"nombre": "Premier Division (Irlanda)", "search": "Premier Division", "country": "Ireland"},
+    {"nombre": "HNL (Croacia)", "search": "HNL", "country": "Croatia"},
+    {"nombre": "Premier League (Azerbaiyán)", "search": "Premier League", "country": "Azerbaijan"},
+    {"nombre": "Pro League (Bélgica)", "search": "Pro League", "country": "Belgium"},
+    {"nombre": "Meistriliiga (Estonia)", "search": "Meistriliiga", "country": "Estonia"},
+    {"nombre": "Serie A (Brasil)", "search": "Serie A", "country": "Brazil"},
+    {"nombre": "First League (Bulgaria)", "search": "First League", "country": "Bulgaria"},
+    {"nombre": "Premiership (Escocia)", "search": "Premiership", "country": "Scotland"},
+    {"nombre": "Super League (Grecia)", "search": "Super League", "country": "Greece"},
+    {"nombre": "NB I (Hungría)", "search": "NB I", "country": "Hungary"},
+    # Segundas divisiones
+    {"nombre": "2. Bundesliga (Alemania)", "search": "2. Bundesliga", "country": "Germany"},
+    {"nombre": "Ligue 2 (Francia)", "search": "Ligue 2", "country": "France"},
+    {"nombre": "Serie B (Italia)", "search": "Serie B", "country": "Italy"},
 ]
 
 # Cuántos partidos anteriores de cada equipo se usan para calcular medias
