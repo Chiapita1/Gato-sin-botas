@@ -2585,7 +2585,8 @@
     "prob_implicita": 80.0,
     "resultado": 1,
     "acierto": true,
-    "ganancia": 0.25
+    "ganancia": 0.25,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-10",
@@ -2613,7 +2614,8 @@
     "prob_implicita": 66.7,
     "resultado": 4,
     "acierto": true,
-    "ganancia": 0.5
+    "ganancia": 0.5,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-10",
@@ -2627,7 +2629,8 @@
     "prob_implicita": 66.7,
     "resultado": 4,
     "acierto": true,
-    "ganancia": 0.5
+    "ganancia": 0.5,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-10",
@@ -2793,6 +2796,104 @@
     "cuota": 1.57,
     "prob_estadistica": 71.4,
     "prob_implicita": 63.7,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-11",
+    "fixture_id": 1598827,
+    "liga": "Champions League",
+    "partido": "Bodo/Glimt vs Union St. Gilloise",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.55,
+    "prob_estadistica": 83.1,
+    "prob_implicita": 64.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-11",
+    "fixture_id": 1598827,
+    "liga": "Champions League",
+    "partido": "Bodo/Glimt vs Union St. Gilloise",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.17,
+    "prob_estadistica": 94.1,
+    "prob_implicita": 85.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-11",
+    "fixture_id": 1598827,
+    "liga": "Champions League",
+    "partido": "Bodo/Glimt vs Union St. Gilloise",
+    "mercado": "goles_1t",
+    "seleccion": "Over 0.5",
+    "cuota": 1.22,
+    "prob_estadistica": 89.0,
+    "prob_implicita": 82.0,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-11",
+    "fixture_id": 1598827,
+    "liga": "Champions League",
+    "partido": "Bodo/Glimt vs Union St. Gilloise",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.57,
+    "prob_estadistica": 91.9,
+    "prob_implicita": 63.7,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-11",
+    "fixture_id": 1607171,
+    "liga": "Champions League",
+    "partido": "Kauno Žalgiris vs Dinamo Zagreb",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.83,
+    "prob_estadistica": 75.4,
+    "prob_implicita": 54.6,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-11",
+    "fixture_id": 1607169,
+    "liga": "Champions League",
+    "partido": "FK Crvena Zvezda vs Hapoel Beer Sheva",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.85,
+    "prob_estadistica": 71.1,
+    "prob_implicita": 54.1,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-11",
+    "fixture_id": 1605371,
+    "liga": "Champions League",
+    "partido": "Celje vs Ararat-Armenia",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.73,
+    "prob_estadistica": 66.5,
+    "prob_implicita": 57.8,
     "resultado": null,
     "acierto": null,
     "ganancia": null
