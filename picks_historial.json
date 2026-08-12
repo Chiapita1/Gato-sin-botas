@@ -2686,7 +2686,8 @@
     "prob_implicita": 87.7,
     "resultado": 5,
     "acierto": true,
-    "ganancia": 0.1399999999999999
+    "ganancia": 0.1399999999999999,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-11",
@@ -2700,7 +2701,8 @@
     "prob_implicita": 82.0,
     "resultado": 0,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-11",
@@ -2826,7 +2828,8 @@
     "prob_implicita": 85.5,
     "resultado": 5,
     "acierto": true,
-    "ganancia": 0.16999999999999993
+    "ganancia": 0.16999999999999993,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-11",
@@ -2840,7 +2843,8 @@
     "prob_implicita": 82.0,
     "resultado": 0,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-11",
@@ -2924,7 +2928,8 @@
     "prob_implicita": 85.5,
     "resultado": 5,
     "acierto": true,
-    "ganancia": 0.16999999999999993
+    "ganancia": 0.16999999999999993,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-11",
@@ -2938,7 +2943,8 @@
     "prob_implicita": 82.0,
     "resultado": 0,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-11",
@@ -2995,6 +3001,48 @@
     "resultado": 0,
     "acierto": false,
     "ganancia": -1
+  },
+  {
+    "fecha": "2026-08-12",
+    "fixture_id": 1547759,
+    "liga": "Copa Libertadores",
+    "partido": "Estudiantes L.P. vs U. Catolica",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.48,
+    "prob_estadistica": 73.3,
+    "prob_implicita": 67.6,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-12",
+    "fixture_id": 1547758,
+    "liga": "Copa Libertadores",
+    "partido": "Deportes Tolima vs Independiente del Valle",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.4,
+    "prob_estadistica": 81.8,
+    "prob_implicita": 71.4,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-12",
+    "fixture_id": 1547758,
+    "liga": "Copa Libertadores",
+    "partido": "Deportes Tolima vs Independiente del Valle",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.85,
+    "prob_estadistica": 75.2,
+    "prob_implicita": 54.1,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
   },
   {
     "fecha": "2026-08-12",
