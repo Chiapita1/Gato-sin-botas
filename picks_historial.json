@@ -3281,5 +3281,19 @@
     "resultado": null,
     "acierto": null,
     "ganancia": null
+  },
+  {
+    "fecha": "2026-08-12",
+    "fixture_id": 1547763,
+    "liga": "Copa Libertadores",
+    "partido": "Platense vs Coquimbo Unido",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.65,
+    "prob_estadistica": 66.5,
+    "prob_implicita": 60.6,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
   }
 ]
