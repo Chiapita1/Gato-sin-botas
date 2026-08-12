@@ -36,9 +36,19 @@ def _guardar_picks(picks):
 
 
 def registrar_hallazgos(resultados_por_liga):
-    """Añade al histórico los avisos de hoy, con resultado pendiente."""
+    """
+    Añade al histórico los avisos de hoy, con resultado pendiente.
+
+    Como ahora se consultan "hoy y mañana" (ver data_fetcher.partidos_de_hoy),
+    un mismo partido puede aparecer en dos ejecuciones seguidas (una noche
+    como "mañana" y la siguiente como "hoy"). Para no duplicar el aviso ni
+    contar el mismo pick dos veces en las estadísticas, se comprueba antes
+    si ya existe un pick para ese mismo partido + mercado.
+    """
     picks = _cargar_picks()
     hoy = datetime.date.today().isoformat()
+
+    ya_registrados = {(p["fixture_id"], p["mercado"]) for p in picks}
 
     for liga, partidos in resultados_por_liga.items():
         for fixture, hallazgos in partidos:
@@ -48,6 +58,10 @@ def registrar_hallazgos(resultados_por_liga):
             home = fixture["teams"]["home"]["name"]
             away = fixture["teams"]["away"]["name"]
             for h in hallazgos:
+                clave = (fixture_id, h["mercado"])
+                if clave in ya_registrados:
+                    continue  # ya se avisó de este partido+mercado antes
+                ya_registrados.add(clave)
                 picks.append({
                     "fecha": hoy,
                     "fixture_id": fixture_id,
@@ -232,4 +246,4 @@ def resumen_por_mercado(dias=60):
         }
 
     return resumen
-    
+        
