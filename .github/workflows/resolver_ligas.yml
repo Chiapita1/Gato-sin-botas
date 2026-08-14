@@ -1,0 +1,32 @@
+name: Resolver Ligas (ejecutar solo una vez)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  resolver-ligas:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install requests
+
+      - name: Ejecutar resolver de ligas
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: python resolver_ligas.py
+
+      - name: Guardar ligas_config.json en el repositorio
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add ligas_config.json
+          git diff --staged --quiet || git commit -m "Generar ligas_config.json"
+          git push
