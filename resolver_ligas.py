@@ -1,26 +1,23 @@
 """
-Resolver de IDs de liga (API-Football)
----------------------------------------
-Este script se ejecuta UNA VEZ (o cada vez que quieras añadir/quitar ligas)
-para traducir nombres de país/competición a los league_id reales de
-API-Football, y los guarda en ligas_config.json.
-
-De esta forma alerta_favorito_desventaja.py no tiene que adivinar IDs a mano
-(hay más de 1.200 competiciones y los IDs no son intuitivos) ni gastar
-peticiones en resolverlos en cada ejecución.
+Resolver de IDs de liga (API-Football) - v2
+----------------------------------------------
+Trae el listado COMPLETO de ligas/copas de API-Football en una sola llamada
+y busca dentro de ese listado (en Python) las competiciones que nos
+interesan. Esto evita depender de adivinar el nombre exacto de {country} o
+si el parámetro {search} funciona bien combinado con {country}, que fue lo
+que falló en la primera versión.
 
 Uso:
     export API_FOOTBALL_KEY="tu_clave"
     python resolver_ligas.py
 
 Revisa la salida por consola: para cada liga te muestra qué encontró.
-Si alguna sale como "NO ENCONTRADA" o con un resultado ambiguo, ajusta el
-texto de búsqueda en LIGAS_OBJETIVO y vuelve a ejecutar.
+Si alguna sale como "NO ENCONTRADA" o "AMBIGUO", ajusta el texto de
+búsqueda en LIGAS_OBJETIVO (o el nombre de país) y vuelve a ejecutar.
 """
 
 import os
 import json
-import time
 import requests
 
 API_FOOTBALL_KEY = os.environ.get("API_FOOTBALL_KEY", "")
@@ -29,8 +26,9 @@ HEADERS = {"x-apisports-key": API_FOOTBALL_KEY}
 
 SALIDA_PATH = "ligas_config.json"
 
-# Cada entrada: (nombre_para_mostrar, pais_api_football, texto_busqueda)
-# El texto de búsqueda se manda al parámetro "search" del endpoint /leagues.
+# Cada entrada: (nombre_para_mostrar, texto_pais_o_None, texto_nombre_liga)
+# Ambos textos se buscan como subcadena, sin distinguir mayúsculas/minúsculas,
+# dentro de los campos "country" y "league.name" que devuelve la API.
 LIGAS_OBJETIVO = [
     # Primeras divisiones
     ("España - La Liga", "Spain", "La Liga"),
@@ -47,7 +45,7 @@ LIGAS_OBJETIVO = [
     ("Suecia - Allsvenskan", "Sweden", "Allsvenskan"),
     ("Noruega - Eliteserien", "Norway", "Eliteserien"),
     ("Rumanía - Liga I", "Romania", "Liga I"),
-    ("Azerbaiyán - Premyer Liqasi", "Azerbaijan", "Premyer Liqasi"),
+    ("Azerbaiyán - Premyer Liqasi", "Azerbaijan", "Premyer"),
     ("Alemania - Bundesliga", "Germany", "Bundesliga"),
     ("Brasil - Serie A", "Brazil", "Serie A"),
     ("China - Super League", "China", "Super League"),
@@ -55,7 +53,7 @@ LIGAS_OBJETIVO = [
     ("Irlanda - Premier Division", "Ireland", "Premier Division"),
     ("México - Liga MX", "Mexico", "Liga MX"),
     ("Croacia - HNL", "Croatia", "HNL"),
-    ("República Checa - Chance Liga", "Czech-Republic", "Chance"),
+    ("República Checa - Chance Liga", "Czech", "Chance"),
     ("Polonia - Ekstraklasa", "Poland", "Ekstraklasa"),
     ("Estados Unidos - MLS", "USA", "MLS"),
     ("Bulgaria - First League", "Bulgaria", "First League"),
@@ -68,63 +66,85 @@ LIGAS_OBJETIVO = [
     ("Inglaterra - Championship", "England", "Championship"),
     ("Italia - Serie B", "Italy", "Serie B"),
     # Competiciones continentales / internacionales de clubes
-    ("UEFA Champions League", None, "UEFA Champions League"),
-    ("UEFA Europa League", None, "UEFA Europa League"),
-    ("UEFA Conference League", None, "UEFA Europa Conference League"),
-    ("Copa Libertadores", None, "Copa Libertadores"),
-    ("Copa Sudamericana", None, "Copa Sudamericana"),
+    ("UEFA Champions League", "World", "Champions League"),
+    ("UEFA Europa League", "World", "Europa League"),
+    ("UEFA Conference League", "World", "Conference League"),
+    ("Copa Libertadores", "World", "Libertadores"),
+    ("Copa Sudamericana", "World", "Sudamericana"),
 ]
 
 
-def buscar_liga(pais, texto_busqueda):
-    params = {"search": texto_busqueda}
-    if pais:
-        params["country"] = pais
-    resp = requests.get(f"{API_BASE}/leagues", headers=HEADERS, params=params, timeout=15)
+def obtener_todas_las_ligas():
+    """Una sola llamada: trae el listado completo de ligas/copas de la API."""
+    resp = requests.get(f"{API_BASE}/leagues", headers=HEADERS, timeout=30)
     resp.raise_for_status()
-    return resp.json().get("response", [])
+    data = resp.json()
+    if data.get("errors"):
+        raise SystemExit(f"La API devolvió un error: {data['errors']}")
+    return data.get("response", [])
+
+
+def buscar_en_listado(listado, texto_pais, texto_nombre):
+    texto_nombre_low = texto_nombre.lower()
+    candidatos = []
+    for item in listado:
+        nombre_liga = item["league"]["name"]
+        nombre_pais = item["country"]["name"] or ""
+        if texto_nombre_low not in nombre_liga.lower():
+            continue
+        if texto_pais and texto_pais != "World":
+            if texto_pais.lower() not in nombre_pais.lower():
+                continue
+        if texto_pais == "World" and nombre_pais.lower() != "world":
+            continue
+        candidatos.append(item)
+    return candidatos
+
+
+def elegir_mejor_candidato(candidatos, texto_nombre):
+    # Prioriza coincidencia exacta de nombre (sin distinguir mayúsculas)
+    for c in candidatos:
+        if c["league"]["name"].lower() == texto_nombre.lower():
+            return c, False
+    return candidatos[0], True
 
 
 def main():
     if not API_FOOTBALL_KEY:
         raise SystemExit("Falta la variable de entorno API_FOOTBALL_KEY")
 
+    print("Descargando listado completo de ligas (1 sola llamada)...")
+    listado = obtener_todas_las_ligas()
+    print(f"Listado recibido: {len(listado)} competiciones en total.\n")
+
     resultado_final = {}
     pendientes_revision = []
 
-    for nombre_mostrar, pais, texto_busqueda in LIGAS_OBJETIVO:
-        try:
-            candidatos = buscar_liga(pais, texto_busqueda)
-        except requests.RequestException as e:
-            print(f"[ERROR] {nombre_mostrar}: fallo de red -> {e}")
+    for nombre_mostrar, texto_pais, texto_nombre in LIGAS_OBJETIVO:
+        candidatos = buscar_en_listado(listado, texto_pais, texto_nombre)
+
+        if not candidatos:
+            print(f"[NO ENCONTRADA] {nombre_mostrar}  (buscado: pais='{texto_pais}', nombre~'{texto_nombre}')")
             pendientes_revision.append(nombre_mostrar)
             continue
 
-        if not candidatos:
-            print(f"[NO ENCONTRADA] {nombre_mostrar}  (búsqueda: '{texto_busqueda}', país: {pais})")
-            pendientes_revision.append(nombre_mostrar)
-        elif len(candidatos) == 1:
-            liga = candidatos[0]["league"]
-            pais_info = candidatos[0]["country"]
-            resultado_final[nombre_mostrar] = liga["id"]
-            print(f"[OK] {nombre_mostrar} -> id {liga['id']} ({liga['name']}, {pais_info['name']})")
-        else:
-            # Varios resultados: mostramos todos para que elijas a mano si hace falta
-            print(f"[AMBIGUO] {nombre_mostrar} tiene {len(candidatos)} coincidencias:")
+        elegido, es_ambiguo = elegir_mejor_candidato(candidatos, texto_nombre)
+        liga = elegido["league"]
+        pais_info = elegido["country"]
+        resultado_final[nombre_mostrar] = liga["id"]
+
+        if es_ambiguo and len(candidatos) > 1:
+            print(f"[AMBIGUO] {nombre_mostrar} -> eligiendo id {liga['id']} ({liga['name']}, {pais_info['name']}) entre {len(candidatos)} opciones:")
             for c in candidatos:
                 print(f"    id {c['league']['id']} -> {c['league']['name']} ({c['country']['name']}, tipo: {c['league']['type']})")
-            # Nos quedamos con la primera coincidencia de tipo "League" como mejor intento,
-            # pero avisamos para que la revises.
-            liga_tipo_league = next((c for c in candidatos if c["league"]["type"] == "League"), candidatos[0])
-            resultado_final[nombre_mostrar] = liga_tipo_league["league"]["id"]
             pendientes_revision.append(nombre_mostrar)
-
-        time.sleep(0.3)  # margen prudente entre llamadas
+        else:
+            print(f"[OK] {nombre_mostrar} -> id {liga['id']} ({liga['name']}, {pais_info['name']})")
 
     with open(SALIDA_PATH, "w") as f:
         json.dump(resultado_final, f, indent=2, ensure_ascii=False)
 
-    print(f"\nGuardado {SALIDA_PATH} con {len(resultado_final)} ligas resueltas.")
+    print(f"\nGuardado {SALIDA_PATH} con {len(resultado_final)} de {len(LIGAS_OBJETIVO)} ligas resueltas.")
     if pendientes_revision:
         print("\n⚠️ Revisa manualmente estas (no encontradas o ambiguas):")
         for nombre in pendientes_revision:
@@ -134,4 +154,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-  
+    
