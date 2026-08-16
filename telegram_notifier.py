@@ -21,16 +21,33 @@ def _nombre_mercado(mercado):
 
 
 def enviar_mensaje(texto):
-    url = f"https://api.telegram.org/bot{config.TELEGRAM_BOT_TOKEN}/sendMessage"
-    payload = {
-        "chat_id": config.TELEGRAM_CHAT_ID,
-        "text": texto,
-        "parse_mode": "HTML",
-        "disable_web_page_preview": True,
-    }
-    resp = requests.post(url, data=payload, timeout=15)
-    resp.raise_for_status()
-    return resp.json()
+    LIMITE = 4000  # margen bajo 4096 para no pasarnos
+    lineas = texto.split("\n")
+    bloques = []
+    actual = ""
+    for linea in lineas:
+        candidato = actual + linea + "\n"
+        if len(candidato) > LIMITE:
+            bloques.append(actual)
+            actual = linea + "\n"
+        else:
+            actual = candidato
+    if actual:
+        bloques.append(actual)
+
+    resultado = None
+    for bloque in bloques:
+        url = f"https://api.telegram.org/bot{config.TELEGRAM_BOT_TOKEN}/sendMessage"
+        payload = {
+            "chat_id": config.TELEGRAM_CHAT_ID,
+            "text": bloque,
+            "parse_mode": "HTML",
+            "disable_web_page_preview": True,
+        }
+        resp = requests.post(url, data=payload, timeout=15)
+        resp.raise_for_status()
+        resultado = resp.json()
+    return resultado
 
 
 def construir_mensaje(resultados_por_liga):
