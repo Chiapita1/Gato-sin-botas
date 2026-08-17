@@ -1,12 +1,12 @@
 name: Alerta Favorito en Desventaja
 
-# Se ejecuta sola cada 5 minutos, todos los días, dentro de la franja horaria
-# típica de partidos (de 12:00 a 23:55 hora española aprox). GitHub usa UTC,
-# así que 12:00-23:55 España (verano, UTC+2) equivale a 10:00-21:55 UTC.
-# Ajusta el rango si quieres cubrir más o menos horas.
+# Se ejecuta sola cada 30 minutos, todos los días, entre las 15:00 y las 23:55
+# hora española aprox. GitHub usa UTC, así que 15:00-23:55 España (verano,
+# UTC+2) equivale a 13:00-21:55 UTC. Ajusta el rango si quieres cubrir más o
+# menos horas.
 on:
   schedule:
-    - cron: "*/5 10-21 * * *"
+    - cron: "*/30 13-21 * * *"
   workflow_dispatch:  # te permite lanzarlo manualmente desde GitHub también
 
 jobs:
