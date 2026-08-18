@@ -3114,7 +3114,8 @@
     "prob_implicita": 74.1,
     "resultado": 4,
     "acierto": true,
-    "ganancia": 0.3500000000000001
+    "ganancia": 0.3500000000000001,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-12",
@@ -3198,7 +3199,8 @@
     "prob_implicita": 80.0,
     "resultado": 6,
     "acierto": true,
-    "ganancia": 0.25
+    "ganancia": 0.25,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-12",
@@ -3212,7 +3214,8 @@
     "prob_implicita": 76.9,
     "resultado": 4,
     "acierto": true,
-    "ganancia": 0.30000000000000004
+    "ganancia": 0.30000000000000004,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-12",
@@ -3369,7 +3372,8 @@
     "prob_implicita": 90.1,
     "resultado": 1,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-13",
@@ -3383,7 +3387,8 @@
     "prob_implicita": 85.5,
     "resultado": 0,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-13",
@@ -3439,7 +3444,8 @@
     "prob_implicita": 80.0,
     "resultado": 4,
     "acierto": true,
-    "ganancia": 0.25
+    "ganancia": 0.25,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-13",
@@ -3453,7 +3459,8 @@
     "prob_implicita": 73.5,
     "resultado": 2,
     "acierto": true,
-    "ganancia": 0.3600000000000001
+    "ganancia": 0.3600000000000001,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-13",
@@ -3509,7 +3516,8 @@
     "prob_implicita": 76.9,
     "resultado": 1,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-13",
@@ -3551,7 +3559,8 @@
     "prob_implicita": 78.1,
     "resultado": 2,
     "acierto": true,
-    "ganancia": 0.28
+    "ganancia": 0.28,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-13",
@@ -3593,7 +3602,8 @@
     "prob_implicita": 84.7,
     "resultado": 1,
     "acierto": true,
-    "ganancia": 0.17999999999999994
+    "ganancia": 0.17999999999999994,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-14",
@@ -3621,7 +3631,8 @@
     "prob_implicita": 74.1,
     "resultado": 2,
     "acierto": true,
-    "ganancia": 0.3500000000000001
+    "ganancia": 0.3500000000000001,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-14",
@@ -3663,7 +3674,8 @@
     "prob_implicita": 69.4,
     "resultado": 1,
     "acierto": true,
-    "ganancia": 0.43999999999999995
+    "ganancia": 0.43999999999999995,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-14",
@@ -3677,7 +3689,8 @@
     "prob_implicita": 76.9,
     "resultado": 4,
     "acierto": true,
-    "ganancia": 0.30000000000000004
+    "ganancia": 0.30000000000000004,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-14",
@@ -3691,7 +3704,8 @@
     "prob_implicita": 71.4,
     "resultado": 4,
     "acierto": true,
-    "ganancia": 0.3999999999999999
+    "ganancia": 0.3999999999999999,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-14",
@@ -3773,9 +3787,9 @@
     "cuota": 1.8,
     "prob_estadistica": 69.6,
     "prob_implicita": 55.6,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 2,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-17",
@@ -3787,9 +3801,9 @@
     "cuota": 1.25,
     "prob_estadistica": 87.3,
     "prob_implicita": 80.0,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 2,
+    "acierto": true,
+    "ganancia": 0.25
   },
   {
     "fecha": "2026-08-17",
@@ -3801,9 +3815,9 @@
     "cuota": 1.33,
     "prob_estadistica": 85.3,
     "prob_implicita": 75.2,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 1,
+    "acierto": true,
+    "ganancia": 0.33000000000000007
   },
   {
     "fecha": "2026-08-17",
@@ -3815,9 +3829,9 @@
     "cuota": 2.2,
     "prob_estadistica": 65.7,
     "prob_implicita": 45.5,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 0,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-17",
@@ -3829,9 +3843,9 @@
     "cuota": 1.4,
     "prob_estadistica": 85.1,
     "prob_implicita": 71.4,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 0,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-17",
@@ -3843,9 +3857,9 @@
     "cuota": 1.42,
     "prob_estadistica": 83.6,
     "prob_implicita": 70.4,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 0,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-17",
@@ -3857,9 +3871,9 @@
     "cuota": 1.95,
     "prob_estadistica": 71.4,
     "prob_implicita": 51.3,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 0,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-17",
@@ -3871,9 +3885,9 @@
     "cuota": 1.35,
     "prob_estadistica": 81.4,
     "prob_implicita": 74.1,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 1,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-17",
@@ -3885,6 +3899,188 @@
     "cuota": 1.57,
     "prob_estadistica": 69.8,
     "prob_implicita": 63.7,
+    "resultado": 1,
+    "acierto": false,
+    "ganancia": -1
+  },
+  {
+    "fecha": "2026-08-18",
+    "fixture_id": 1570334,
+    "liga": "LaLiga",
+    "partido": "Atletico Madrid vs Malaga",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.73,
+    "prob_estadistica": 68.5,
+    "prob_implicita": 57.8,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-18",
+    "fixture_id": 1570334,
+    "liga": "LaLiga",
+    "partido": "Atletico Madrid vs Malaga",
+    "mercado": "goles_1t",
+    "seleccion": "Over 0.5",
+    "cuota": 1.33,
+    "prob_estadistica": 82.6,
+    "prob_implicita": 75.2,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-18",
+    "fixture_id": 1570334,
+    "liga": "LaLiga",
+    "partido": "Atletico Madrid vs Malaga",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 2.15,
+    "prob_estadistica": 69.2,
+    "prob_implicita": 46.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-18",
+    "fixture_id": 1610923,
+    "liga": "Champions League",
+    "partido": "Celtic vs Lask Linz",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.7,
+    "prob_estadistica": 67.0,
+    "prob_implicita": 58.8,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-18",
+    "fixture_id": 1610923,
+    "liga": "Champions League",
+    "partido": "Celtic vs Lask Linz",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.7,
+    "prob_estadistica": 85.4,
+    "prob_implicita": 58.8,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-18",
+    "fixture_id": 1622624,
+    "liga": "Champions League",
+    "partido": "NEC Nijmegen vs Bodo/Glimt",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.38,
+    "prob_estadistica": 81.9,
+    "prob_implicita": 72.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-18",
+    "fixture_id": 1622625,
+    "liga": "Champions League",
+    "partido": "Slovan Bratislava vs Celje",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.7,
+    "prob_estadistica": 81.1,
+    "prob_implicita": 58.8,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-18",
+    "fixture_id": 1550929,
+    "liga": "Liga MX",
+    "partido": "CF Pachuca vs Puebla",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.65,
+    "prob_estadistica": 73.0,
+    "prob_implicita": 60.6,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-18",
+    "fixture_id": 1550929,
+    "liga": "Liga MX",
+    "partido": "CF Pachuca vs Puebla",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.2,
+    "prob_estadistica": 89.2,
+    "prob_implicita": 83.3,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-18",
+    "fixture_id": 1550929,
+    "liga": "Liga MX",
+    "partido": "CF Pachuca vs Puebla",
+    "mercado": "goles_1t",
+    "seleccion": "Over 0.5",
+    "cuota": 1.28,
+    "prob_estadistica": 87.6,
+    "prob_implicita": 78.1,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-18",
+    "fixture_id": 1547758,
+    "liga": "Copa Libertadores",
+    "partido": "Deportes Tolima vs Independiente del Valle",
+    "mercado": "goles_1t",
+    "seleccion": "Over 0.5",
+    "cuota": 1.48,
+    "prob_estadistica": 76.4,
+    "prob_implicita": 67.6,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-18",
+    "fixture_id": 1547772,
+    "liga": "Copa Libertadores",
+    "partido": "U. Catolica vs Estudiantes L.P.",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.48,
+    "prob_estadistica": 77.7,
+    "prob_implicita": 67.6,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-18",
+    "fixture_id": 1547765,
+    "liga": "Copa Libertadores",
+    "partido": "Cerro Porteno vs Palmeiras",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.45,
+    "prob_estadistica": 75.8,
+    "prob_implicita": 69.0,
     "resultado": null,
     "acierto": null,
     "ganancia": null
