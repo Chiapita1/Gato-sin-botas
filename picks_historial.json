@@ -3027,9 +3027,9 @@
     "cuota": 1.4,
     "prob_estadistica": 81.8,
     "prob_implicita": 71.4,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 1,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-12",
@@ -3041,9 +3041,9 @@
     "cuota": 1.85,
     "prob_estadistica": 75.2,
     "prob_implicita": 54.1,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 0,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-12",
@@ -3070,9 +3070,9 @@
     "cuota": 1.4,
     "prob_estadistica": 81.8,
     "prob_implicita": 71.4,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 1,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-12",
@@ -3084,9 +3084,9 @@
     "cuota": 1.85,
     "prob_estadistica": 75.2,
     "prob_implicita": 54.1,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 0,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-12",
@@ -3731,9 +3731,9 @@
     "cuota": 1.65,
     "prob_estadistica": 68.9,
     "prob_implicita": 60.6,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 1,
+    "acierto": true,
+    "ganancia": 0.6499999999999999
   },
   {
     "fecha": "2026-08-17",
@@ -3745,9 +3745,9 @@
     "cuota": 1.62,
     "prob_estadistica": 75.7,
     "prob_implicita": 61.7,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 1,
+    "acierto": true,
+    "ganancia": 0.6200000000000001
   },
   {
     "fecha": "2026-08-17",
@@ -3759,9 +3759,9 @@
     "cuota": 1.8,
     "prob_estadistica": 73.4,
     "prob_implicita": 55.6,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 0,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-17",
@@ -3773,9 +3773,9 @@
     "cuota": 1.36,
     "prob_estadistica": 83.5,
     "prob_implicita": 73.5,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 0,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-17",
@@ -3803,7 +3803,8 @@
     "prob_implicita": 80.0,
     "resultado": 2,
     "acierto": true,
-    "ganancia": 0.25
+    "ganancia": 0.25,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-17",
@@ -3817,7 +3818,8 @@
     "prob_implicita": 75.2,
     "resultado": 1,
     "acierto": true,
-    "ganancia": 0.33000000000000007
+    "ganancia": 0.33000000000000007,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-17",
@@ -3845,7 +3847,8 @@
     "prob_implicita": 71.4,
     "resultado": 0,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-17",
@@ -3859,7 +3862,8 @@
     "prob_implicita": 70.4,
     "resultado": 0,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-17",
@@ -3887,7 +3891,8 @@
     "prob_implicita": 74.1,
     "resultado": 1,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-17",
@@ -4011,9 +4016,9 @@
     "cuota": 1.65,
     "prob_estadistica": 73.0,
     "prob_implicita": 60.6,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 5,
+    "acierto": true,
+    "ganancia": 0.6499999999999999
   },
   {
     "fecha": "2026-08-18",
@@ -4025,9 +4030,9 @@
     "cuota": 1.2,
     "prob_estadistica": 89.2,
     "prob_implicita": 83.3,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 5,
+    "acierto": true,
+    "ganancia": 0.19999999999999996
   },
   {
     "fecha": "2026-08-18",
@@ -4039,9 +4044,9 @@
     "cuota": 1.28,
     "prob_estadistica": 87.6,
     "prob_implicita": 78.1,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 3,
+    "acierto": true,
+    "ganancia": 0.28
   },
   {
     "fecha": "2026-08-18",
@@ -4053,9 +4058,9 @@
     "cuota": 1.48,
     "prob_estadistica": 76.4,
     "prob_implicita": 67.6,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 1,
+    "acierto": true,
+    "ganancia": 0.48
   },
   {
     "fecha": "2026-08-18",
@@ -4067,9 +4072,9 @@
     "cuota": 1.48,
     "prob_estadistica": 77.7,
     "prob_implicita": 67.6,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 3,
+    "acierto": true,
+    "ganancia": 0.48
   },
   {
     "fecha": "2026-08-18",
@@ -4081,6 +4086,286 @@
     "cuota": 1.45,
     "prob_estadistica": 75.8,
     "prob_implicita": 69.0,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1570351,
+    "liga": "LaLiga",
+    "partido": "Rayo Vallecano vs Alaves",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.55,
+    "prob_estadistica": 71.9,
+    "prob_implicita": 64.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1623436,
+    "liga": "Europa League",
+    "partido": "Mjallby AIF vs Red Bull Salzburg",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.55,
+    "prob_estadistica": 71.3,
+    "prob_implicita": 64.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1627595,
+    "liga": "Europa League",
+    "partido": "Lech Poznan vs FC Thun",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.62,
+    "prob_estadistica": 74.8,
+    "prob_implicita": 61.7,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1627595,
+    "liga": "Europa League",
+    "partido": "Lech Poznan vs FC Thun",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.2,
+    "prob_estadistica": 90.2,
+    "prob_implicita": 83.3,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1627595,
+    "liga": "Europa League",
+    "partido": "Lech Poznan vs FC Thun",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.62,
+    "prob_estadistica": 87.6,
+    "prob_implicita": 61.7,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1623433,
+    "liga": "Europa League",
+    "partido": "Egnatia Rrogozhinë vs Lillestrom",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.85,
+    "prob_estadistica": 74.1,
+    "prob_implicita": 54.1,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1623433,
+    "liga": "Europa League",
+    "partido": "Egnatia Rrogozhinë vs Lillestrom",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.28,
+    "prob_estadistica": 89.8,
+    "prob_implicita": 78.1,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1623433,
+    "liga": "Europa League",
+    "partido": "Egnatia Rrogozhinë vs Lillestrom",
+    "mercado": "goles_1t",
+    "seleccion": "Over 0.5",
+    "cuota": 1.35,
+    "prob_estadistica": 83.8,
+    "prob_implicita": 74.1,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1622632,
+    "liga": "Europa League",
+    "partido": "FK Crvena Zvezda vs Plzen",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.73,
+    "prob_estadistica": 78.2,
+    "prob_implicita": 57.8,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1622632,
+    "liga": "Europa League",
+    "partido": "FK Crvena Zvezda vs Plzen",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.22,
+    "prob_estadistica": 91.8,
+    "prob_implicita": 82.0,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1622632,
+    "liga": "Europa League",
+    "partido": "FK Crvena Zvezda vs Plzen",
+    "mercado": "goles_1t",
+    "seleccion": "Over 0.5",
+    "cuota": 1.3,
+    "prob_estadistica": 88.6,
+    "prob_implicita": 76.9,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1622632,
+    "liga": "Europa League",
+    "partido": "FK Crvena Zvezda vs Plzen",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.7,
+    "prob_estadistica": 82.5,
+    "prob_implicita": 58.8,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1623437,
+    "liga": "Europa League",
+    "partido": "OFI vs CSKA Sofia",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 2.0,
+    "prob_estadistica": 65.9,
+    "prob_implicita": 50.0,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1623437,
+    "liga": "Europa League",
+    "partido": "OFI vs CSKA Sofia",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.33,
+    "prob_estadistica": 85.3,
+    "prob_implicita": 75.2,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1623437,
+    "liga": "Europa League",
+    "partido": "OFI vs CSKA Sofia",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.75,
+    "prob_estadistica": 69.5,
+    "prob_implicita": 57.1,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1623431,
+    "liga": "Europa League",
+    "partido": "Benfica vs Aarhus",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.8,
+    "prob_estadistica": 66.0,
+    "prob_implicita": 55.6,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1547768,
+    "liga": "Copa Libertadores",
+    "partido": "Flamengo vs Cruzeiro",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.91,
+    "prob_estadistica": 70.8,
+    "prob_implicita": 52.4,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1607653,
+    "liga": "Copa Sudamericana",
+    "partido": "Sao Paulo vs Bolívar",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.95,
+    "prob_estadistica": 66.2,
+    "prob_implicita": 51.3,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1606078,
+    "liga": "Copa Sudamericana",
+    "partido": "Macara vs Santos",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.38,
+    "prob_estadistica": 77.5,
+    "prob_implicita": 72.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-19",
+    "fixture_id": 1606078,
+    "liga": "Copa Sudamericana",
+    "partido": "Macara vs Santos",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.85,
+    "prob_estadistica": 72.5,
+    "prob_implicita": 54.1,
     "resultado": null,
     "acierto": null,
     "ganancia": null
