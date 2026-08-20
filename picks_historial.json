@@ -3029,7 +3029,8 @@
     "prob_implicita": 71.4,
     "resultado": 1,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-12",
@@ -3072,7 +3073,8 @@
     "prob_implicita": 71.4,
     "resultado": 1,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-12",
@@ -3918,9 +3920,9 @@
     "cuota": 1.73,
     "prob_estadistica": 68.5,
     "prob_implicita": 57.8,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 2,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-18",
@@ -3932,9 +3934,9 @@
     "cuota": 1.33,
     "prob_estadistica": 82.6,
     "prob_implicita": 75.2,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 0,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-18",
@@ -3946,9 +3948,9 @@
     "cuota": 2.15,
     "prob_estadistica": 69.2,
     "prob_implicita": 46.5,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 0,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-18",
@@ -3960,9 +3962,9 @@
     "cuota": 1.7,
     "prob_estadistica": 67.0,
     "prob_implicita": 58.8,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 3,
+    "acierto": true,
+    "ganancia": 0.7
   },
   {
     "fecha": "2026-08-18",
@@ -3974,9 +3976,9 @@
     "cuota": 1.7,
     "prob_estadistica": 85.4,
     "prob_implicita": 58.8,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 0,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-18",
@@ -3988,9 +3990,9 @@
     "cuota": 1.38,
     "prob_estadistica": 81.9,
     "prob_implicita": 72.5,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 1,
+    "acierto": true,
+    "ganancia": 0.3799999999999999
   },
   {
     "fecha": "2026-08-18",
@@ -4002,9 +4004,9 @@
     "cuota": 1.7,
     "prob_estadistica": 81.1,
     "prob_implicita": 58.8,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 1,
+    "acierto": true,
+    "ganancia": 0.7
   },
   {
     "fecha": "2026-08-18",
@@ -4032,7 +4034,8 @@
     "prob_implicita": 83.3,
     "resultado": 5,
     "acierto": true,
-    "ganancia": 0.19999999999999996
+    "ganancia": 0.19999999999999996,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-18",
@@ -4046,7 +4049,8 @@
     "prob_implicita": 78.1,
     "resultado": 3,
     "acierto": true,
-    "ganancia": 0.28
+    "ganancia": 0.28,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-18",
@@ -4060,7 +4064,8 @@
     "prob_implicita": 67.6,
     "resultado": 1,
     "acierto": true,
-    "ganancia": 0.48
+    "ganancia": 0.48,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-18",
@@ -4074,7 +4079,8 @@
     "prob_implicita": 67.6,
     "resultado": 3,
     "acierto": true,
-    "ganancia": 0.48
+    "ganancia": 0.48,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-18",
@@ -4086,9 +4092,9 @@
     "cuota": 1.45,
     "prob_estadistica": 75.8,
     "prob_implicita": 69.0,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 1,
+    "acierto": false,
+    "ganancia": -1
   },
   {
     "fecha": "2026-08-19",
@@ -4324,9 +4330,9 @@
     "cuota": 1.91,
     "prob_estadistica": 70.8,
     "prob_implicita": 52.4,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 1,
+    "acierto": true,
+    "ganancia": 0.9099999999999999
   },
   {
     "fecha": "2026-08-19",
@@ -4338,9 +4344,9 @@
     "cuota": 1.95,
     "prob_estadistica": 66.2,
     "prob_implicita": 51.3,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null
+    "resultado": 1,
+    "acierto": true,
+    "ganancia": 0.95
   },
   {
     "fecha": "2026-08-19",
@@ -4366,6 +4372,426 @@
     "cuota": 1.85,
     "prob_estadistica": 72.5,
     "prob_implicita": 54.1,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1570345,
+    "liga": "LaLiga",
+    "partido": "Real Betis vs Real Sociedad",
+    "mercado": "goles_1t",
+    "seleccion": "Over 0.5",
+    "cuota": 1.38,
+    "prob_estadistica": 78.0,
+    "prob_implicita": 72.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1557367,
+    "liga": "Premier League",
+    "partido": "Arsenal vs Coventry",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 2.45,
+    "prob_estadistica": 77.2,
+    "prob_implicita": 40.8,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1552733,
+    "liga": "Ligue 1",
+    "partido": "Marseille vs Strasbourg",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.55,
+    "prob_estadistica": 74.9,
+    "prob_implicita": 64.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1552733,
+    "liga": "Ligue 1",
+    "partido": "Marseille vs Strasbourg",
+    "mercado": "goles_1t",
+    "seleccion": "Over 0.5",
+    "cuota": 1.25,
+    "prob_estadistica": 88.0,
+    "prob_implicita": 80.0,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1561912,
+    "liga": "Austrian Bundesliga",
+    "partido": "Ried vs Grazer AK",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.95,
+    "prob_estadistica": 78.2,
+    "prob_implicita": 51.3,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1561912,
+    "liga": "Austrian Bundesliga",
+    "partido": "Ried vs Grazer AK",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.33,
+    "prob_estadistica": 91.8,
+    "prob_implicita": 75.2,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1561912,
+    "liga": "Austrian Bundesliga",
+    "partido": "Ried vs Grazer AK",
+    "mercado": "goles_1t",
+    "seleccion": "Over 0.5",
+    "cuota": 1.38,
+    "prob_estadistica": 84.5,
+    "prob_implicita": 72.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1555033,
+    "liga": "Challenge League (Suiza)",
+    "partido": "Neuchatel Xamax FC vs Stade Lausanne-Ouchy",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.48,
+    "prob_estadistica": 76.6,
+    "prob_implicita": 67.6,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1555033,
+    "liga": "Challenge League (Suiza)",
+    "partido": "Neuchatel Xamax FC vs Stade Lausanne-Ouchy",
+    "mercado": "goles_1t",
+    "seleccion": "Over 0.5",
+    "cuota": 1.22,
+    "prob_estadistica": 89.4,
+    "prob_implicita": 82.0,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1555033,
+    "liga": "Challenge League (Suiza)",
+    "partido": "Neuchatel Xamax FC vs Stade Lausanne-Ouchy",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.4,
+    "prob_estadistica": 81.3,
+    "prob_implicita": 71.4,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1555034,
+    "liga": "Challenge League (Suiza)",
+    "partido": "Rapperswil vs FC Winterthur",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.62,
+    "prob_estadistica": 77.7,
+    "prob_implicita": 61.7,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1555034,
+    "liga": "Challenge League (Suiza)",
+    "partido": "Rapperswil vs FC Winterthur",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.17,
+    "prob_estadistica": 91.6,
+    "prob_implicita": 85.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1555034,
+    "liga": "Challenge League (Suiza)",
+    "partido": "Rapperswil vs FC Winterthur",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.44,
+    "prob_estadistica": 82.2,
+    "prob_implicita": 69.4,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1492754,
+    "liga": "Premier Division (Irlanda)",
+    "partido": "Shamrock Rovers vs Shelbourne",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 2.15,
+    "prob_estadistica": 69.9,
+    "prob_implicita": 46.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1492754,
+    "liga": "Premier Division (Irlanda)",
+    "partido": "Shamrock Rovers vs Shelbourne",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.38,
+    "prob_estadistica": 87.5,
+    "prob_implicita": 72.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1492754,
+    "liga": "Premier Division (Irlanda)",
+    "partido": "Shamrock Rovers vs Shelbourne",
+    "mercado": "goles_1t",
+    "seleccion": "Over 0.5",
+    "cuota": 1.42,
+    "prob_estadistica": 89.2,
+    "prob_implicita": 70.4,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1492754,
+    "liga": "Premier Division (Irlanda)",
+    "partido": "Shamrock Rovers vs Shelbourne",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.93,
+    "prob_estadistica": 65.1,
+    "prob_implicita": 51.8,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1492755,
+    "liga": "Premier Division (Irlanda)",
+    "partido": "Sligo Rovers vs Waterford",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.55,
+    "prob_estadistica": 74.4,
+    "prob_implicita": 64.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1548515,
+    "liga": "HNL (Croacia)",
+    "partido": "Rudes vs NK Lokomotiva Zagreb",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.6,
+    "prob_estadistica": 74.5,
+    "prob_implicita": 62.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1548515,
+    "liga": "HNL (Croacia)",
+    "partido": "Rudes vs NK Lokomotiva Zagreb",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.2,
+    "prob_estadistica": 90.0,
+    "prob_implicita": 83.3,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1513609,
+    "liga": "Meistriliiga (Estonia)",
+    "partido": "FC Levadia Tallinn vs Trans Narva",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.9,
+    "prob_estadistica": 84.0,
+    "prob_implicita": 52.6,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1560229,
+    "liga": "NB I (Hungría)",
+    "partido": "Paks vs Ujpest",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.42,
+    "prob_estadistica": 80.8,
+    "prob_implicita": 70.4,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1560229,
+    "liga": "NB I (Hungría)",
+    "partido": "Paks vs Ujpest",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.38,
+    "prob_estadistica": 79.7,
+    "prob_implicita": 72.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1552443,
+    "liga": "Ligue 2 (Francia)",
+    "partido": "Dunkerque vs Montpellier",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 1.85,
+    "prob_estadistica": 66.2,
+    "prob_implicita": 54.1,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1552443,
+    "liga": "Ligue 2 (Francia)",
+    "partido": "Dunkerque vs Montpellier",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.28,
+    "prob_estadistica": 85.4,
+    "prob_implicita": 78.1,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1552443,
+    "liga": "Ligue 2 (Francia)",
+    "partido": "Dunkerque vs Montpellier",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.62,
+    "prob_estadistica": 77.4,
+    "prob_implicita": 61.7,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1601498,
+    "liga": "Serie B (Italia)",
+    "partido": "Vicenza Virtus vs Catanzaro",
+    "mercado": "goles",
+    "seleccion": "Over 2.5",
+    "cuota": 2.1,
+    "prob_estadistica": 66.9,
+    "prob_implicita": 47.6,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1601498,
+    "liga": "Serie B (Italia)",
+    "partido": "Vicenza Virtus vs Catanzaro",
+    "mercado": "goles_over15",
+    "seleccion": "Over 1.5",
+    "cuota": 1.36,
+    "prob_estadistica": 85.8,
+    "prob_implicita": 73.5,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1601498,
+    "liga": "Serie B (Italia)",
+    "partido": "Vicenza Virtus vs Catanzaro",
+    "mercado": "goles_1t",
+    "seleccion": "Over 0.5",
+    "cuota": 1.42,
+    "prob_estadistica": 79.8,
+    "prob_implicita": 70.4,
+    "resultado": null,
+    "acierto": null,
+    "ganancia": null
+  },
+  {
+    "fecha": "2026-08-20",
+    "fixture_id": 1601498,
+    "liga": "Serie B (Italia)",
+    "partido": "Vicenza Virtus vs Catanzaro",
+    "mercado": "btts",
+    "seleccion": "Yes",
+    "cuota": 1.8,
+    "prob_estadistica": 76.7,
+    "prob_implicita": 55.6,
     "resultado": null,
     "acierto": null,
     "ganancia": null
