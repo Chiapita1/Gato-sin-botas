@@ -19,61 +19,58 @@ API_FOOTBALL_BASE_URL = f"https://{API_FOOTBALL_HOST}"
 
 # Competiciones a analizar. En vez de IDs fijos (que pueden estar mal o
 # cambiar), el bot busca el ID correcto por nombre + país cada vez que
-# corre, usando el endpoint /leagues de la API.
+# corre, usando el endpoint /leagues de la API. Las que ya tienen "id"
+# fijo se ahorran esa búsqueda.
 LEAGUE_QUERIES = [
-    # Europa - top 5
+    # Primeras divisiones - Europa
     {"nombre": "LaLiga", "search": "La Liga", "country": "Spain", "id": 140},
     {"nombre": "Premier League", "search": "Premier League", "country": "England", "id": 39},
     {"nombre": "Serie A", "search": "Serie A", "country": "Italy", "id": 135},
     {"nombre": "Bundesliga", "search": "Bundesliga", "country": "Germany", "id": 78},
     {"nombre": "Ligue 1", "search": "Ligue 1", "country": "France", "id": 61},
-    # Europa - otras
     {"nombre": "Eredivisie", "search": "Eredivisie", "country": "Netherlands", "id": 88},
     {"nombre": "Primeira Liga", "search": "Primeira Liga", "country": "Portugal", "id": 94},
     {"nombre": "Eliteserien (Noruega)", "search": "Eliteserien", "country": "Norway", "id": 103},
     {"nombre": "Allsvenskan (Suecia)", "search": "Allsvenskan", "country": "Sweden", "id": 113},
-    {"nombre": "Veikkausliiga (Finlandia)", "search": "Veikkausliiga", "country": "Finland", "id": 244},
-    # Europa - competiciones internacionales de clubes
-    {"nombre": "Champions League", "search": "Champions League", "country": "World", "id": 2},
-    {"nombre": "Europa League", "search": "Europa League", "country": "World", "id": 3},
-    # América
-    {"nombre": "MLS", "search": "MLS", "country": "USA", "id": 866},
-    {"nombre": "Liga MX", "search": "Liga MX", "country": "Mexico", "id": 262},
-    # Asia
-    {"nombre": "Superliga China", "search": "Super League", "country": "China", "id": 169},
-    {"nombre": "J1 League (Japón)", "search": "J1 League", "country": "Japan", "id": 98},
-    {"nombre": "Saudi Pro League", "search": "Pro League", "country": "Saudi Arabia"},
-    # Selecciones
-    {"nombre": "Mundial de Selecciones", "search": "World Cup", "country": "World", "id": 1},
-    # Europa - añadidas ahora que hay plan de pago
-    {"nombre": "Swiss Super League", "search": "Super League", "country": "Switzerland", "id": 207},
-    {"nombre": "Austrian Bundesliga", "search": "Bundesliga", "country": "Austria", "id": 218},
-    {"nombre": "Championship (Inglaterra)", "search": "Championship", "country": "England", "id": 40},
-    {"nombre": "LaLiga 2", "search": "Segunda", "country": "Spain", "id": 141},
-    {"nombre": "Ekstraklasa (Polonia)", "search": "Ekstraklasa", "country": "Poland", "id": 106},
-    {"nombre": "Superliga (Rumanía)", "search": "Liga 1", "country": "Romania", "id": 728},
-    {"nombre": "Chance Liga (Rep. Checa)", "search": "First League", "country": "Czech-Republic"},
-    {"nombre": "Challenge League (Suiza)", "search": "Challenge League", "country": "Switzerland", "id": 208},
-    {"nombre": "Süper Lig (Turquía)", "search": "Super Lig", "country": "Turkey", "id": 203},
-    # Copas internacionales de clubes (Sudamérica)
-    {"nombre": "Copa Libertadores", "search": "Libertadores", "country": "World", "id": 13},
-    {"nombre": "Copa Sudamericana", "search": "Sudamericana", "country": "World", "id": 11},
-    # Ampliación con suscripción de pago (7.500 peticiones/día)
     {"nombre": "Superliga (Dinamarca)", "search": "Superliga", "country": "Denmark", "id": 119},
     {"nombre": "Premier Division (Irlanda)", "search": "Premier Division", "country": "Ireland", "id": 357},
+    {"nombre": "Ekstraklasa (Polonia)", "search": "Ekstraklasa", "country": "Poland", "id": 106},
+    {"nombre": "Superliga (Rumanía)", "search": "Liga 1", "country": "Romania", "id": 728},
     {"nombre": "HNL (Croacia)", "search": "HNL", "country": "Croatia", "id": 210},
     {"nombre": "Premier League (Azerbaiyán)", "search": "Premier-Liqa", "country": "Azerbaijan"},
+    {"nombre": "Chance Liga (Rep. Checa)", "search": "First League", "country": "Czech-Republic"},
     {"nombre": "Pro League (Bélgica)", "search": "Pro League", "country": "Belgium", "id": 144},
     {"nombre": "Meistriliiga (Estonia)", "search": "Meistriliiga", "country": "Estonia", "id": 329},
-    {"nombre": "Serie A (Brasil)", "search": "Serie A", "country": "Brazil", "id": 71},
+    {"nombre": "Austrian Bundesliga", "search": "Bundesliga", "country": "Austria", "id": 218},
     {"nombre": "First League (Bulgaria)", "search": "First League", "country": "Bulgaria", "id": 172},
     {"nombre": "Premiership (Escocia)", "search": "Premiership", "country": "Scotland", "id": 179},
     {"nombre": "Super League (Grecia)", "search": "Super League", "country": "Greece", "id": 197},
+    {"nombre": "Süper Lig (Turquía)", "search": "Super Lig", "country": "Turkey", "id": 203},
     {"nombre": "NB I (Hungría)", "search": "NB I", "country": "Hungary", "id": 271},
+    {"nombre": "Swiss Super League", "search": "Super League", "country": "Switzerland", "id": 207},
+    # Primeras divisiones - América
+    {"nombre": "Liga MX", "search": "Liga MX", "country": "Mexico", "id": 262},
+    {"nombre": "MLS", "search": "MLS", "country": "USA", "id": 866},
+    {"nombre": "Serie A (Brasil)", "search": "Serie A", "country": "Brazil", "id": 71},
+    # Primeras divisiones - Asia
+    {"nombre": "Superliga China", "search": "Super League", "country": "China", "id": 169},
+    {"nombre": "Qatar Stars League", "search": "Stars League", "country": "Qatar"},
+    {"nombre": "Saudi Pro League", "search": "Pro League", "country": "Saudi Arabia"},
+    {"nombre": "J1 League (Japón)", "search": "J1 League", "country": "Japan", "id": 98},
+    # Selecciones
+    {"nombre": "Mundial de Selecciones", "search": "World Cup", "country": "World", "id": 1},
+    # Competiciones internacionales de clubes
+    {"nombre": "Champions League", "search": "Champions League", "country": "World", "id": 2},
+    {"nombre": "Europa League", "search": "Europa League", "country": "World", "id": 3},
+    {"nombre": "Copa Libertadores", "search": "Libertadores", "country": "World", "id": 13},
+    {"nombre": "Copa Sudamericana", "search": "Sudamericana", "country": "World", "id": 11},
     # Segundas divisiones
+    {"nombre": "LaLiga 2", "search": "Segunda", "country": "Spain", "id": 141},
     {"nombre": "2. Bundesliga (Alemania)", "search": "2. Bundesliga", "country": "Germany", "id": 79},
     {"nombre": "Ligue 2 (Francia)", "search": "Ligue 2", "country": "France", "id": 62},
+    {"nombre": "Championship (Inglaterra)", "search": "Championship", "country": "England", "id": 40},
     {"nombre": "Serie B (Italia)", "search": "Serie B", "country": "Italy", "id": 136},
+    {"nombre": "Challenge League (Suiza)", "search": "Challenge League", "country": "Switzerland", "id": 208},
 ]
 
 # Cuántos partidos anteriores de cada equipo se usan para calcular medias
