@@ -4600,7 +4600,8 @@
     "prob_implicita": 72.5,
     "resultado": 0,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-20",
@@ -4614,7 +4615,8 @@
     "prob_implicita": 70.4,
     "resultado": 0,
     "acierto": false,
-    "ganancia": -1
+    "ganancia": -1,
+    "_reparado_v1": true
   },
   {
     "fecha": "2026-08-20",
@@ -7748,9 +7750,9 @@
     "cuota": 1.4,
     "prob_estadistica": 89.5,
     "prob_implicita": 71.4,
-    "resultado": null,
-    "acierto": null,
-    "ganancia": null,
+    "resultado": 2,
+    "acierto": true,
+    "ganancia": 0.3999999999999999,
     "_reparado_v1": true
   },
   {
